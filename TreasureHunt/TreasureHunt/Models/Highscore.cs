@@ -16,6 +16,12 @@ namespace TreasureHunt.Models
         public virtual string Score { get; set; }
 
         public virtual ICollection<Player> Players { get; set; }
+
+        public virtual void AddPlayer(Player player)
+        {
+            Players.Add(player);
+            player.Highscores.Add(this);
+        }
     }
 
 }

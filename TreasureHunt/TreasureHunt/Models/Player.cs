@@ -19,6 +19,19 @@ namespace TreasureHunt.Models
 
         public virtual ICollection<Riddle> Riddles { get; set; }
         public virtual ICollection<Highscore> Highscores { get; set; }
+
+        public virtual void AddRiddle(Riddle riddle)
+        {
+            Riddles.Add(riddle);
+            riddle.Players.Add(this); 
+        }
+
+        public virtual void AddHighscore(Highscore highscore)
+        {
+            Highscores.Add(highscore);
+            highscore.Players.Add(this);
+        }
+
     }
 
 }
