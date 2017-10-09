@@ -19,6 +19,7 @@ namespace TreasureHunt.Mapping
 
         public HbmMapping Map()
         {
+            MapHighscore();
             MapPlayer();
             MapRiddle();
             return _modelMapper.CompileMappingForAllExplicitlyAddedEntities();
@@ -43,6 +44,23 @@ namespace TreasureHunt.Mapping
             });
         }
 
+        private void MapHighscore()
+        {
+            _modelMapper.Class<Highscore>(e =>
+            {
+                e.Id(p => p.HighscoreID, p => p.Generator(Generators.GuidComb));
+                e.Property(p => p.Score);
+
+                e.Set(x => x.Players, collectionMapping =>
+                {
+                    collectionMapping.Table("HighscoresPlayers");
+                    collectionMapping.Cascade(Cascade.None);
+                    collectionMapping.Key(keyMap => keyMap.Column("HighscoreID"));
+
+                }, map => map.ManyToMany(p => p.Column("PlayerID")));
+            });
+        }
+
         private void MapPlayer()
         {
             _modelMapper.Class<Player>(e =>
@@ -59,6 +77,15 @@ namespace TreasureHunt.Mapping
                     collectionMapping.Key(keyMap => keyMap.Column("PlayerID")); 
 
                 }, map => map.ManyToMany(p => p.Column("RiddleID")));
+
+                e.Set(x => x.Highscores, collectionMapping =>
+                {
+                    collectionMapping.Table("HighscoresPlayers");
+                    collectionMapping.Inverse(true);
+                    collectionMapping.Cascade(Cascade.None);
+                    collectionMapping.Key(keyMap => keyMap.Column("PlayerID"));
+
+                }, map => map.ManyToMany(p => p.Column("HighscoreID")));
             });
         }
     }

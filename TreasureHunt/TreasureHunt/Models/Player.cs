@@ -10,7 +10,7 @@ namespace TreasureHunt.Models
         public Player()
         {
             Riddles = new List<Riddle>();
-            //Highscores = new List<Highscore>();
+            Highscores = new List<Highscore>();
         }
 
         public virtual Guid PlayerID { get; set; }
@@ -18,7 +18,7 @@ namespace TreasureHunt.Models
         public virtual string Email { get; set; }
 
         public virtual ICollection<Riddle> Riddles { get; set; }
-        //public virtual ICollection<Highscore> Highscores { get; set; }
+        public virtual ICollection<Highscore> Highscores { get; set; }
     }
 
 }
