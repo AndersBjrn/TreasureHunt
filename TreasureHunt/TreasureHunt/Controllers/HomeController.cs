@@ -14,5 +14,12 @@ namespace TreasureHunt.Controllers
 
             return View();
         }
+
+        public ActionResult StartGame()
+        {
+            ViewBag.Title = "Start Game";
+
+            return View();
+        }
     }
 }
