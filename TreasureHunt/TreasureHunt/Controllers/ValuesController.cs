@@ -16,9 +16,7 @@ namespace TreasureHunt.Controllers
         [Route("CreateDB"), HttpGet]
         public void CreateDB()
         {
-            var session = DBService.OpenSession();
-            DBHandler.CreateDB();
-            DBService.CloseSession(session);
+            DBhandler.CreateDB();
         }
 
         // GET api/values
