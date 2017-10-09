@@ -13,9 +13,9 @@ namespace TreasureHunt.Models
         }
 
         public virtual Guid RiddleID { get; set; }
-        public virtual string RiddleText { get; set; }
-        public virtual string RiddleAnswer { get; set; }
-        public virtual string RiddleType { get; set; }
+        public virtual string DisplayText { get; set; }
+        public virtual string Answer { get; set; }
+        public virtual string Type { get; set; }
 
         public virtual ICollection<Player> Players { get; set; }
     }
