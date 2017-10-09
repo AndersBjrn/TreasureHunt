@@ -9,7 +9,6 @@ namespace TreasureHunt.Models
     {
         Riddles = new List<Riddle>();
         Highscores = new List<Highscore>();
-
     }
 
     public virtual Guid PlayerID { get; set; }
