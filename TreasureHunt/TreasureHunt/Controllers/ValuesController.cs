@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NHibernate.Linq;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -40,31 +41,49 @@ namespace TreasureHunt.Controllers
 
             DBService.CloseSession(session);
         }
-        // GET api/values
-        public IEnumerable<string> Get()
+
+        [Route("GetRiddles"), HttpGet]
+        public IEnumerable<Riddle> GetRiddles()
         {
-            return new string[] { "value1", "value2" };
+            var session = DBService.OpenSession();
+            var result = session.Query<Riddle>().ToList();
+            DBService.CloseSession(session);
+            return result;
         }
 
-        // GET api/values/5
-        public string Get(int id)
+        [Route("GetRandomRiddle"), HttpGet]
+        public string GetOneRandomRiddle()
         {
-            return "value";
+            List<Riddle> riddleList = GetRiddles().ToList();
+            Random rnd = new Random();
+            int nextRiddle = rnd.Next(0, riddleList.Count());
+            return riddleList[nextRiddle].DisplayText;
         }
 
-        // POST api/values
-        public void Post([FromBody]string value)
+        [Route("InsertRiddle"), HttpPost]
+        public void InsertRiddleIntoDB(Riddle riddle)
         {
+            var session = DBService.OpenSession();
+            session.Save(riddle);
+            DBService.CloseSession(session);
         }
 
-        // PUT api/values/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
+        //private static string FormatString(string nameString)
+        //{
+        //    List<char> charList = new List<char>();
 
-        // DELETE api/values/5
-        public void Delete(int id)
-        {
-        }
+        //    for (int i = 0; i < nameString.Length; i++)
+        //    {
+        //        if (i == 0)
+        //        {
+        //            charList[0] = nameString.ToUpper()[0];
+        //        }
+        //        else if (i > 0)
+        //        {
+        //            charList[i] = nameString.ToLower()[i];
+        //        }
+        //    }
+        //    return charList.ToString();
+        //}
     }
 }
