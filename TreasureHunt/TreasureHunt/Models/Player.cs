@@ -5,16 +5,20 @@ using System.Web;
 
 namespace TreasureHunt.Models
 {
-    public class Players
+    public class Player
     {
-        Riddles = new List<Riddle>();
-        Highscores = new List<Highscore>();
+        public Player()
+        {
+            Riddles = new List<Riddle>();
+            Highscores = new List<Highscore>();
+        }
+
+        public virtual Guid PlayerID { get; set; }
+        public virtual string PlayerName { get; set; }
+        public virtual string PlayerEmail { get; set; }
+
+        public virtual ICollection<Riddle> Riddles { get; set; }
+        public virtual ICollection<Highscore> Highscores { get; set; }
     }
 
-    public virtual Guid PlayerID { get; set; }
-    public virtual string PlayerName { get; set; }
-    public virtual string PlayerEmail { get; set; }    
-    
-    public virtual ICollection<Riddle> Riddles { get; set; }
-    public virtual ICollection<Highscore> Highscores { get; set; }
 }
