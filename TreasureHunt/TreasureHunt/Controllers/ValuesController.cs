@@ -9,6 +9,13 @@ namespace TreasureHunt.Controllers
 {
     public class ValuesController : ApiController
     {
+
+        [Route("CreateDB"), HttpGet]
+        public void CreateDB()
+        {
+            DBhandler.CreateDB();
+        }
+
         // GET api/values
         public IEnumerable<string> Get()
         {
