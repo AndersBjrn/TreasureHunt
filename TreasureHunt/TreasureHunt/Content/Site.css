@@ -15,3 +15,15 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.background {
+    background: url('../Images/anpassadskatt.jpg') no-repeat fixed center top;
+    background-size: cover;
+    opacity: 0.5;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    padding-top: 50px;
+}
