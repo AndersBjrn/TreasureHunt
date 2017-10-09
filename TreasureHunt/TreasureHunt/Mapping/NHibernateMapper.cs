@@ -14,13 +14,13 @@ namespace TreasureHunt.Mapping
 
         public NHibernateMapper()
         {
-            MapPlayer();
-            MapRiddle();
             _modelMapper = new ModelMapper();
         }
 
         public HbmMapping Map()
         {
+            MapPlayer();
+            MapRiddle();
             return _modelMapper.CompileMappingForAllExplicitlyAddedEntities();
         }
 
