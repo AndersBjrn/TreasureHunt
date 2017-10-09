@@ -60,6 +60,23 @@ namespace TreasureHunt.Controllers
             return riddleList[nextRiddle].DisplayText;
         }
 
+        [Route("GetAnswer"), HttpGet]
+        public string GetAnswer(string riddleAnswer, string riddle)
+        {
+            var session = DBService.OpenSession();
+            Riddle currentRiddle = session.Query<Riddle>().Where(c => c.DisplayText == riddle).Single();
+            DBService.CloseSession(session);
+            if (currentRiddle.Answer == riddleAnswer)
+            {
+                return "bra";
+            }
+            else
+            {
+                return "dåligt";
+            }
+            
+        }
+
         [Route("InsertRiddle"), HttpPost]
         public void InsertRiddleIntoDB(Riddle riddle)
         {
