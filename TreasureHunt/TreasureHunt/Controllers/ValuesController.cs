@@ -4,16 +4,21 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using TreasureHunt.Models;
+using TreasureHunt.Services;
 
 namespace TreasureHunt.Controllers
 {
+    [RoutePrefix("API")]
     public class ValuesController : ApiController
     {
 
         [Route("CreateDB"), HttpGet]
         public void CreateDB()
         {
-            DBhandler.CreateDB();
+            var session = DBService.OpenSession();
+            DBHandler.CreateDB();
+            DBService.CloseSession(session);
         }
 
         // GET api/values

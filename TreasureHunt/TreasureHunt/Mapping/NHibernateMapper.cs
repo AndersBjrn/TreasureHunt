@@ -14,6 +14,8 @@ namespace TreasureHunt.Mapping
 
         public NHibernateMapper()
         {
+            MapPlayer();
+            MapRiddle();
             _modelMapper = new ModelMapper();
         }
 
@@ -35,9 +37,9 @@ namespace TreasureHunt.Mapping
                 {
                     collectionMapping.Table("RiddlesPlayers");
                     collectionMapping.Cascade(Cascade.None);
-                    collectionMapping.Key(keyMap => keyMap.Column("RiddleId")); 
+                    collectionMapping.Key(keyMap => keyMap.Column("RiddleID")); 
 
-                }, map => map.ManyToMany(p => p.Column("PlayerId"))); 
+                }, map => map.ManyToMany(p => p.Column("PlayerID"))); 
             });
         }
 
@@ -54,9 +56,9 @@ namespace TreasureHunt.Mapping
                     collectionMapping.Table("RiddlesPlayers");
                     collectionMapping.Inverse(true);   
                     collectionMapping.Cascade(Cascade.None);   
-                    collectionMapping.Key(keyMap => keyMap.Column("PlayerId")); 
+                    collectionMapping.Key(keyMap => keyMap.Column("PlayerID")); 
 
-                }, map => map.ManyToMany(p => p.Column("RiddleId")));
+                }, map => map.ManyToMany(p => p.Column("RiddleID")));
             });
         }
     }

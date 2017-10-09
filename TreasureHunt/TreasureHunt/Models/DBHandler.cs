@@ -8,12 +8,13 @@ using System.IO;
 
 namespace TreasureHunt.Models
 {
-    public class DBhandler
+    public class DBHandler
     {
         public static void CreateDB()
         {
             var cfg = DBService.Configure();
             var export = new SchemaExport(cfg);
+            export.Drop(false, true);
             export.Create(true, true);
         }
     }
