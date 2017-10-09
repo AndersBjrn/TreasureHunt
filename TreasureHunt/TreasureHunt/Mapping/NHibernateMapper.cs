@@ -51,7 +51,7 @@ namespace TreasureHunt.Mapping
                 e.Set(x => x.Riddles, collectionMapping =>
                 {
                     collectionMapping.Table("RiddlesPlayers");
-                    collectionMapping.Inverse(true);    //På ena men inte andra sidan
+                    collectionMapping.Inverse(true);   
                     collectionMapping.Cascade(Cascade.None);   
                     collectionMapping.Key(keyMap => keyMap.Column("PlayerId")); 
 

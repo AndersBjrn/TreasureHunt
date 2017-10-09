@@ -8,6 +8,7 @@ using NHibernate.Mapping.ByCode;
 using NHibernate.Dialect;
 using NHibernate.Cfg;
 using System.Reflection;
+using TreasureHunt.Mapping;
 
 namespace TreasureHunt.Services
 {
