@@ -5,7 +5,6 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using TreasureHunt.Models;
-using TreasureHunt.Services;
 
 namespace TreasureHunt.Controllers
 {
@@ -16,7 +15,8 @@ namespace TreasureHunt.Controllers
         [Route("CreateDB"), HttpGet]
         public void CreateDB()
         {
-            DBhandler.CreateDB();
+
+            DBHandler.CreateDB();
         }
 
         // GET api/values
