@@ -2,6 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using NHibernate;
+using NHibernate.Cfg.MappingSchema;
+using NHibernate.Mapping.ByCode;
+using NHibernate.Dialect;
+using NHibernate.Cfg;
+using System.Reflection;
 
 namespace TreasureHunt.Services
 {
