@@ -26,7 +26,7 @@ namespace TreasureHunt.Mapping
         {
             _modelMapper.Class<Riddle>(e =>
             {
-                e.Id(p => p.RiddleId, p => p.Generator(Generators.GuidComb));
+                e.Id(p => p.RiddleID, p => p.Generator(Generators.GuidComb));
                 e.Property(p => p.Answer);
                 e.Property(p => p.DisplayText);
                 e.Property(p => p.Type);
@@ -45,7 +45,7 @@ namespace TreasureHunt.Mapping
         {
             _modelMapper.Class<Player>(e =>
             {
-                e.Id(p => p.IngredientId, p => p.Generator(Generators.GuidComb));
+                e.Id(p => p.PlayerID, p => p.Generator(Generators.GuidComb));
                 e.Property(p => p.Name);
                 e.Property(p => p.Email);
 
