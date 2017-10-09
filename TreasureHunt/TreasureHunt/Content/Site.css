@@ -27,3 +27,31 @@ textarea {
     left: 0px;
     padding-top: 50px;
 }
+
+.centerInput {
+    text-align:center;
+    width: 200px;
+    border: solid 1px gray;
+    
+}
+
+.myButtons {
+
+}
+
+.centerInDiv {
+    margin: 100px auto;
+    display: block;
+    top: 40%;
+    left: 40%;
+    position: absolute;
+}
+
+.riddleCentre {
+    margin: 100px auto;
+    display: block;
+    top: 20%;
+    left: 40%;
+    
+    position: absolute;
+}
