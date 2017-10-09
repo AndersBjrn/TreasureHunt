@@ -13,9 +13,15 @@ namespace TreasureHunt.Models
         }
 
         public virtual Guid HighscoreID { get; set; }
-        public virtual string HighscoreValue { get; set; }
+        public virtual string Score { get; set; }
 
         public virtual ICollection<Player> Players { get; set; }
+
+        public virtual void AddPlayer(Player player)
+        {
+            Players.Add(player);
+            player.Highscores.Add(this);
+        }
     }
 
 }

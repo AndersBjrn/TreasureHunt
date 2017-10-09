@@ -18,6 +18,13 @@ namespace TreasureHunt.Models
         public virtual string Type { get; set; }
 
         public virtual ICollection<Player> Players { get; set; }
+
+        public virtual void AddPlayer(Player player)
+        {
+            Players.Add(player);
+            player.Riddles.Add(this);
+        }
     }
+
 
 }

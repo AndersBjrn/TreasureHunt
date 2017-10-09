@@ -1,14 +1,18 @@
 ﻿<div class="background">
     <br />
 
+<<<<<<< HEAD
     <h1>Skattjakten</h1>
-
+=======
 <form method="get" action="/API/CreateDB">
     <input type="submit" value="Create database" />
 </form>
 <form method="get" action="/API/FillDB">
     <input type="submit" value="Add testdata" />
 </form>
+
+
+>>>>>>> aef925603eff739cdbfa175d0d025a8f0e35abeb
 
 
 

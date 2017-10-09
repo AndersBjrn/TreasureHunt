@@ -17,6 +17,10 @@ namespace TreasureHunt.Controllers
         [Route("CreateDB"), HttpGet]
         public void CreateDB()
         {
+<<<<<<< HEAD
+
+=======
+>>>>>>> aef925603eff739cdbfa175d0d025a8f0e35abeb
             DBHandler.CreateDB();
         }
 
