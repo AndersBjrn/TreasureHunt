@@ -1,0 +1,54 @@
+body {
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+  max-width: 280px;
+}
+
+.background {
+  background: url('../Media/anpassadskatt.jpg') no-repeat fixed center top;
+  background-size: cover;
+  opacity: 0.5;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  padding-top: 50px;
+}
+
+.centerInput {
+  text-align: center;
+  width: 200px;
+  border: solid 1px gray;
+}
+
+.myButtons {
+}
+
+.centerInDiv {
+  margin: 100px auto;
+  display: block;
+  top: 40%;
+  left: 40%;
+  position: absolute;
+}
+
+.riddleCentre {
+  margin: 100px auto;
+  display: block;
+  top: 20%;
+  left: 40%;
+  position: absolute;
+}
