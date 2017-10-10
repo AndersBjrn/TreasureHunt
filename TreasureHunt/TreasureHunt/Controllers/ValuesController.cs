@@ -119,5 +119,11 @@ namespace TreasureHunt.Controllers
             session.Save(player);
             DBService.CloseSession(session);
         }
+
+        [Route("CreatePlayer"), HttpPost]
+        public void CreatePlayer()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

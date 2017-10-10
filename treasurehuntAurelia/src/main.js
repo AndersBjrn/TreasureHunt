@@ -1,9 +1,10 @@
 import environment from './environment';
 
 export function configure(aurelia) {
-  aurelia.use
-    .standardConfiguration()
-    .feature('resources');
+    aurelia.use
+        .standardConfiguration()
+        .feature('resources')
+        .globalResources();
 
   if (environment.debug) {
     aurelia.use.developmentLogging();
@@ -13,5 +14,5 @@ export function configure(aurelia) {
     aurelia.use.plugin('aurelia-testing');
   }
 
-  aurelia.start().then(() => aurelia.setRoot());
+  aurelia.start().then(() => aurelia.setRoot('app'));
 }

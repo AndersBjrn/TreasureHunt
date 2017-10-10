@@ -3,7 +3,7 @@ import { EventAggregator } from 'aurelia-event-aggregator';
 import { HttpClient } from 'aurelia-fetch-client';
 
 @inject(HttpClient)
-export class App {
+export class riddlePage {
     constructor(http) {
         http.configure(config => {
             config
