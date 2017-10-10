@@ -6,11 +6,14 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using TreasureHunt.Models;
 using TreasureHunt.Services;
 
 namespace TreasureHunt.Controllers
 {
+
+    [EnableCors(origins: "http://localhost:9000", headers:"*", methods:"*")]
     [RoutePrefix("API")]
     public class ValuesController : ApiController
     {
