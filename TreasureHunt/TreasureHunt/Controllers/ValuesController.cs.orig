@@ -1,15 +1,19 @@
-﻿using System;
+﻿using NHibernate.Linq;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using TreasureHunt.Models;
 using TreasureHunt.Services;
 
 namespace TreasureHunt.Controllers
 {
+
+    [EnableCors(origins: "http://localhost:9000", headers: "*", methods: "*")]
     [RoutePrefix("API")]
     public class ValuesController : ApiController
     {
@@ -17,10 +21,6 @@ namespace TreasureHunt.Controllers
         [Route("CreateDB"), HttpGet]
         public void CreateDB()
         {
-<<<<<<< HEAD
-
-=======
->>>>>>> aef925603eff739cdbfa175d0d025a8f0e35abeb
             DBHandler.CreateDB();
         }
 
@@ -44,31 +44,91 @@ namespace TreasureHunt.Controllers
 
             DBService.CloseSession(session);
         }
-        // GET api/values
-        public IEnumerable<string> Get()
+
+        [Route("GetRiddles"), HttpGet]
+        public IEnumerable<Riddle> GetRiddles()
         {
-            return new string[] { "value1", "value2" };
+            var session = DBService.OpenSession();
+            var result = session.Query<Riddle>().ToList();
+            DBService.CloseSession(session);
+            return result;
         }
 
-        // GET api/values/5
-        public string Get(int id)
+        [Route("GetRandomRiddle"), HttpGet]
+        public string GetOneRandomRiddle()
         {
-            return "value";
+            List<Riddle> riddleList = GetRiddles().ToList();
+            Random rnd = new Random();
+            int nextRiddle = rnd.Next(0, riddleList.Count());
+            return riddleList[nextRiddle].DisplayText;
         }
 
-        // POST api/values
-        public void Post([FromBody]string value)
+        [Route("GetAnswer"), HttpGet]
+        public string GetAnswer(string riddleAnswer, string riddle)
         {
+            var session = DBService.OpenSession();
+            Riddle currentRiddle = session.Query<Riddle>().Where(c => c.DisplayText == riddle).Single();
+            DBService.CloseSession(session);
+            if (currentRiddle.Answer == riddleAnswer)
+            {
+                return "bra";
+            }
+            else
+            {
+                return "dåligt";
+            }
+
         }
 
-        // PUT api/values/5
-        public void Put(int id, [FromBody]string value)
+        [Route("InsertRiddle"), HttpPost]
+        public void InsertRiddleIntoDB(Riddle riddle)
         {
+            var session = DBService.OpenSession();
+            session.Save(riddle);
+            DBService.CloseSession(session);
         }
 
-        // DELETE api/values/5
-        public void Delete(int id)
+<<<<<<< HEAD
+        [Route("CreatePlayer"), HttpPost]
+        public void CreatePlayer(){
+            throw new NotImplementedException();
+        }
+=======
+        [Route("LogIn"), HttpGet]
+        public IHttpActionResult LogIn(string playerName, string playerPassword)
         {
+            var session = DBService.OpenSession();
+
+            var loginPlayer = session.Query<Player>().Where(c => c.Name == playerName && c.Password == playerPassword).Single();
+
+            string response = "";
+            if (playerName == loginPlayer.Name && playerPassword == loginPlayer.Password)
+            {
+                response = "Log in successfull!";
+            }
+            else
+            {
+                response = "Invalid username or password.";
+                return BadRequest(response);
+            }
+
+            DBService.CloseSession(session);
+
+            return Ok(response);
+        }
+
+        //private static string FormatString(string nameString)
+        //{
+        //    List<char> charList = new List<char>();
+>>>>>>> 3830fb893765b9e8730a88e9a3655c9210ed3c20
+
+        [Route("AddRiddleToPlayer"), HttpPost]
+        public void AddRiddleToPlayer(Player player, Riddle riddle)
+        {
+            var session = DBService.OpenSession();
+            player.AddRiddle(riddle);
+            session.Save(player);
+            DBService.CloseSession(session);
         }
     }
 }
