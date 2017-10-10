@@ -15,7 +15,7 @@ namespace TreasureHunt.Models
 
         public virtual Guid PlayerID { get; set; }
         public virtual string Name { get; set; }
-        public virtual string Email { get; set; }
+        public virtual string Password { get; set; }
 
         public virtual ICollection<Riddle> Riddles { get; set; }
         public virtual ICollection<Highscore> Highscores { get; set; }

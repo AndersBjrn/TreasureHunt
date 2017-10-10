@@ -67,7 +67,7 @@ namespace TreasureHunt.Mapping
             {
                 e.Id(p => p.PlayerID, p => p.Generator(Generators.GuidComb));
                 e.Property(p => p.Name);
-                e.Property(p => p.Email);
+                e.Property(p => p.Password);
 
                 e.Set(x => x.Riddles, collectionMapping =>
                 {

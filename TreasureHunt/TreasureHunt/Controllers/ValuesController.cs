@@ -13,7 +13,7 @@ using TreasureHunt.Services;
 namespace TreasureHunt.Controllers
 {
 
-    [EnableCors(origins: "http://localhost:9000", headers:"*", methods:"*")]
+    [EnableCors(origins: "http://localhost:9000", headers: "*", methods: "*")]
     [RoutePrefix("API")]
     public class ValuesController : ApiController
     {
@@ -77,7 +77,7 @@ namespace TreasureHunt.Controllers
             {
                 return "dåligt";
             }
-            
+
         }
 
         [Route("InsertRiddle"), HttpPost]
@@ -88,22 +88,18 @@ namespace TreasureHunt.Controllers
             DBService.CloseSession(session);
         }
 
-        //private static string FormatString(string nameString)
-        //{
-        //    List<char> charList = new List<char>();
+        [Route("CreatePlayer"), HttpPost]
+        public void CreatePlayer(){
+            throw new NotImplementedException();
+        }
 
-        //    for (int i = 0; i < nameString.Length; i++)
-        //    {
-        //        if (i == 0)
-        //        {
-        //            charList[0] = nameString.ToUpper()[0];
-        //        }
-        //        else if (i > 0)
-        //        {
-        //            charList[i] = nameString.ToLower()[i];
-        //        }
-        //    }
-        //    return charList.ToString();
-        //}
+        [Route("AddRiddleToPlayer"), HttpPost]
+        public void AddRiddleToPlayer(Player player, Riddle riddle)
+        {
+            var session = DBService.OpenSession();
+            player.AddRiddle(riddle);
+            session.Save(player);
+            DBService.CloseSession(session);
+        }
     }
 }
