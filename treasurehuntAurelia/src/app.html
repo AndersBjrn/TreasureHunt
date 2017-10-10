@@ -1,14 +1,14 @@
 <template>
   <div class="background">
+    ${answer}
+    ${correctAnswer}
     <br />
-
-    <h1 id="riddleBox" class="riddleCentre">Skattjakten</h1>
+    <h1 class="riddleCentre">${riddle}</h1>
     <div id="error"></div>
     <div id="success"></div>
-
     <div class="centerInDiv">
-      <input id="answerBox" class="centerInput" type="text" value.bind="getRiddle()" placeholder="Ange svar" />
-      <button class="" id="answerButton"><span>OK</span></button>
+      <input id="answerBox" class="centerInput" type="text" value.bind="answer" placeholder="Ange svar" />
+      <button click.delegate="checkAnswer()"><span>OK</span></button>
     </div>
 
   </div>

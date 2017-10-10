@@ -16,16 +16,26 @@ export class App {
                 });
         });
         this.http = http;
+        this.riddle = "";
+        this.getRiddle();
+        this.answer = "";
+        this.correctAnswer = "";
     }
 
     getRiddle() {
         this.http.fetch('api/GetRandomRiddle')
-            .then(response => {
-                console.log(response)
-                return response.json()
+            .then(response => response.json())
+            .then(data => {
+                this.riddle = data;
             })
-        .then(data => {
-            console.log(data);
-        })
     }
+
+    checkAnswer() {
+        this.http.fetch(`api/getAnswer?riddleAnswer=${this.answer}&riddle=${this.riddle}`) 
+            .then(response => response.json())
+            .then(data => {
+                this.correctAnswer = data;
+            })
+    }
+
 }
