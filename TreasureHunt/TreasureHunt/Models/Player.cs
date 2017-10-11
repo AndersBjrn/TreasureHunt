@@ -13,6 +13,14 @@ namespace TreasureHunt.Models
             Highscores = new List<Highscore>();
         }
 
+        public Player(string name, string password)
+        {
+            Riddles = new List<Riddle>();
+            Highscores = new List<Highscore>();
+            this.Name = name;
+            this.Password = password;
+        }
+
         public virtual Guid PlayerID { get; set; }
         public virtual string Name { get; set; }
         public virtual string Password { get; set; }
