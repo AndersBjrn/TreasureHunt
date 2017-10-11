@@ -92,10 +92,9 @@ namespace TreasureHunt.Controllers
         public IHttpActionResult LogIn(string playerName, string playerPassword)
         {
             var session = DBService.OpenSession();
-
             var loginPlayer = session.Query<Player>().Where(c => c.Name == playerName && c.Password == playerPassword).Single();
-
             string response = "";
+
             if (playerName == loginPlayer.Name && playerPassword == loginPlayer.Password)
             {
                 response = "Log in successfull!";
@@ -107,7 +106,6 @@ namespace TreasureHunt.Controllers
             }
 
             DBService.CloseSession(session);
-
             return Ok(response);
         }
 
@@ -124,7 +122,12 @@ namespace TreasureHunt.Controllers
         public void CreatePlayer(string name, string password)
         {
             var session = DBService.OpenSession();
-            Player player = new Player(name, password)
+            Player player = new Player(name, password);
+            session.Save(player);
+            DBService.CloseSession(session);
         }
+
+
+
     }
 }

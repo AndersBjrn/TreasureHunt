@@ -20,6 +20,11 @@ export class riddlePage {
         this.getRiddle();
         this.answer = "";
         this.correctAnswer = "";
+        this.loggedInPlayer = "";
+    }
+
+    SetLoggedInPlayer(playername) {
+        this.loggedInPlayer = playername;
     }
 
     getRiddle() {
