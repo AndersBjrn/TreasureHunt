@@ -13,6 +13,13 @@ export class App {
                 title: 'Logga in',
             },
             {
+                route: ['newuser'],
+                name: 'newuser',
+                moduleId: 'newUser',
+                nav: true,
+                title: 'Skapa konto',
+            },
+            {
                 route: ['riddle-page'],
                 name: 'riddle',
                 moduleId: 'riddle-page',
