@@ -1,18 +1,18 @@
 <template>
-  <div class="background">
+  <div class="backgroundImage"></div>
+  <div>
     <div class="papperslapp">
       <p class="topInPapperslapp">Du ar nu inloggad som </p><br />
       <p class="bottomInPapperslapp">${loggedInPlayer}</p>
     </div>
     <br />
-    <h1 class="riddleCentre">${riddle}</h1>
+    <h1 class="textTopCentre">${riddle}</h1>
     <div id="error"></div>
     <div id="success"></div>
-    <div class="centerInDiv">
-      <input class="centerInput" type="text" value.bind="answer" placeholder="Ange svar" />
-      <button click.delegate="checkAnswer()"><span>OK</span></button>
+    <div class="AnswerBottomCenter">
+      <input class="centerInput" type="text" value.bind="answer" placeholder="Ange svar" /><br />
+      <button class="loginbutton" click.delegate="checkAnswer()"><span>OK</span></button>
     </div>
-
   </div>
 </template>
 

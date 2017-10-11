@@ -40,7 +40,7 @@ textarea {
   border: solid grey 3px;
   background-color:aliceblue;
 }
-.centerInDiv {
+.AnswerBottomCenter {
   margin: 100px auto;
   display: block;
   top: 40%;
@@ -50,7 +50,17 @@ textarea {
   /*font: body {16px }*/
 }
 
-.riddleCentre {
+.centerOnSite {
+  margin: 100px auto;
+  display: block;
+  top: 20%;
+  left: 40%;
+  position: absolute;
+  text-align: center;
+  /*font: body {16px }*/
+}
+
+.textTopCentre {
   margin: 100px auto;
   display: block;
   top: 20%;
