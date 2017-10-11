@@ -2,6 +2,7 @@ export class App {
 
     configureRouter(config, router) {
         this.router = router;
+        this.loggedInPlayer = "asdf";
         config.title = 'Skattjakt';
         config.map([
             {
@@ -19,5 +20,9 @@ export class App {
                 title: 'Klara av problemet!',
             }
         ]);
+    }
+
+    SetLoggedInPlayer(playername) {
+        this.loggedInPlayer = playername;
     }
 }
