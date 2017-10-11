@@ -121,9 +121,10 @@ namespace TreasureHunt.Controllers
         }
 
         [Route("CreatePlayer"), HttpPost]
-        public void CreatePlayer()
+        public void CreatePlayer(string name, string password)
         {
-            throw new NotImplementedException();
+            var session = DBService.OpenSession();
+            Player player = new Player(name, password)
         }
     }
 }
