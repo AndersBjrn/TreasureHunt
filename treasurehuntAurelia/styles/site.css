@@ -46,6 +46,8 @@ textarea {
   top: 40%;
   left: 40%;
   position: absolute;
+  text-align: center;
+  /*font: body {16px }*/
 }
 
 .riddleCentre {

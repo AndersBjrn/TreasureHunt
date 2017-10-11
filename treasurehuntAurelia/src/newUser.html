@@ -2,9 +2,10 @@
   ${loggedInPlayer}
   ${response}
   
-  <div>    
-    <input type="text" value.bind="newUserName" placeholder="Användarnamn" />
-    <input type="password" value.bind="newUserPassword" placeholder="Lösenord" />
-    <button click.delegate="createNewUser()">Create</button>
+  <div class="centerInDiv">  
+    <h3>Skapa ny användare</h3><br />
+    <input class="centerInput" type="text" value.bind="newUserName" placeholder="Anv&auml;ndarnamn" /><br />
+    <input class="centerInput" type="password" value.bind="newUserPassword" placeholder="L&ouml;senord" /><br />
+    <button class="loginbutton" click.delegate="createNewUser()">Skapa ny anv&auml;ndare</button>
   </div>
 </template>
