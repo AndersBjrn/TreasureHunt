@@ -2,13 +2,13 @@
   ${loggedInPlayer}
   <div class="backgroundImage"></div>
     <div class="centerInDiv">
-      <input class="centerInput" type="text" name="playername" placeholder="Användarnamn" /><br />
-      <input class="centerInput" type="password" name="password" placeholder="Lösenord" /><br />
+      <input class="centerInput" value.bind="playerName" type="text" name="playername" placeholder="Användarnamn" /><br />
+      <input class="centerInput" value.bind="password" type="password" name="password" placeholder="Lösenord" /><br />
       <button class="loginbutton" name="loginButton">Logga in</button>
       <div id="response" class="response"></div>
       <div id="error" class="error"></div>
       <br />
-      <a class="centerMiddleBottom "href="/src/resources/NewUser">Create new user</a>
+      <a route-href="route: newuser">Skapa ny användare.</a>
 
     </div>
   

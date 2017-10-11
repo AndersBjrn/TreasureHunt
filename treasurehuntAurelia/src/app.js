@@ -2,7 +2,7 @@ export class App {
 
     configureRouter(config, router) {
         this.router = router;
-        this.loggedInPlayer = "asdf";
+        this.loggedInPlayer = "";
         config.title = 'Skattjakt';
         config.map([
             {
@@ -11,6 +11,13 @@ export class App {
                 moduleId: 'login',
                 nav: true,
                 title: 'Logga in',
+            },
+            {
+                route: ['newuser'],
+                name: 'newuser',
+                moduleId: 'newUser',
+                nav: true,
+                title: 'Skapa konto',
             },
             {
                 route: ['riddle-page'],

@@ -1,0 +1,10 @@
+<template>
+  ${loggedInPlayer}
+  ${response}
+  
+  <div>    
+    <input type="text" value.bind="newUserName" placeholder="Användarnamn" />
+    <input type="password" value.bind="newUserPassword" placeholder="Lösenord" />
+    <button click.delegate="createNewUser()">Create</button>
+  </div>
+</template>

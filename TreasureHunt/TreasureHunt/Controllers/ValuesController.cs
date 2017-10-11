@@ -110,9 +110,11 @@ namespace TreasureHunt.Controllers
         }
 
         [Route("AddRiddleToPlayer"), HttpPost]
-        public void AddRiddleToPlayer(Player player, Riddle riddle)
+        public void AddRiddleToPlayer(string playerName, string riddleText)
         {
             var session = DBService.OpenSession();
+            Player player = session.Query<Player>().Where(c => c.Name == playerName).Single();
+            Riddle riddle = session.Query<Riddle>().Where(c => c.DisplayText == riddleText).Single();
             player.AddRiddle(riddle);
             session.Save(player);
             DBService.CloseSession(session);
@@ -127,7 +129,21 @@ namespace TreasureHunt.Controllers
             DBService.CloseSession(session);
         }
 
+        [Route("CheckIfUserExists"), HttpGet]
+        public bool CheckUser(string playerName)
+        {
+            var session = DBService.OpenSession();
+            var loginPlayer = session.Query<Player>().Where(c => c.Name == playerName).SingleOrDefault();
 
-
+            if (loginPlayer!=null)
+            {
+                return true;
+            }
+            else
+            {
+                DBService.CloseSession(session);
+                return false;
+            }
+        }
     }
 }
