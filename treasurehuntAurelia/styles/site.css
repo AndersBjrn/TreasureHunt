@@ -16,7 +16,7 @@ textarea {
   max-width: 280px;
 }
 
-.background {
+.backgroundImage {
   background: url('../Media/anpassadskatt.jpg') no-repeat fixed center top;
   background-size: cover;
   opacity: 0.5;
@@ -32,11 +32,14 @@ textarea {
   text-align: center;
   width: 200px;
   border: solid 1px gray;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 20%;
+  border-top-left-radius: 70%;
+  border-bottom-left-radius: 70%;
+  border: solid grey 3px;
+  background-color:aliceblue;
 }
-
-.myButtons {
-}
-
 .centerInDiv {
   margin: 100px auto;
   display: block;
@@ -51,4 +54,46 @@ textarea {
   top: 20%;
   left: 40%;
   position: absolute;
+}
+
+.loginbutton {
+  width: 228px;
+  background-color: saddlebrown;
+  padding: 10px;
+  color: white;
+  border-radius: 20%;
+  border-top-left-radius: 70%;
+  border-bottom-left-radius: 70%;
+}
+
+.papperslapp {
+  background-image: url('../Media/papperslapp2.png');
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  width:275px;
+  height: 170px;
+  z-index: 10;
+}
+
+.topInPapperslapp {  
+  display: block;
+  top: 20%;
+  left: 20%;
+  position: absolute;
+}
+.bottomInPapperslapp {
+  display: block;
+  top: 40%;
+  left: 20%;
+  position: absolute;
+  font-size:larger;
+}
+
+.centerMiddleBottom {
+  display: block;
+  top: 100%;
+  left: 20%;
+  position: absolute;
+  font-size: larger;
 }

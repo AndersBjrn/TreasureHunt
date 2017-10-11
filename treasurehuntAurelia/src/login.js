@@ -16,13 +16,13 @@ export class Login {
                 });
         });
         this.http = http;
-        this.playerName = "";
+        this.playername = "";
         this.password = "";
-        this.Login();        
+              
     }
 
     login() {
-        this.http.fetch(`api/LogIn?Name=${this.playerName}&playerPassword=${this.password}`)
+        this.http.fetch(`api/LogIn?playerName=${this.playername}&playerPassword=${this.password}`)
             .then(response => response.json())
             .then(data => {
                 this.correctAnswer = data;
