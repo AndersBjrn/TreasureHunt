@@ -17,8 +17,7 @@ export class Login {
         });
         this.http = http;
         this.playerName = "";
-        this.password = "";
-        this.Login();        
+        this.password = "";      
     }
 
     login() {

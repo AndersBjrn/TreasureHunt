@@ -1,11 +1,10 @@
 <template>
   ${loggedInPlayer}
-	
+  ${response}
+  
   <div>    
-    <input type="text" value.bind="playerName" placeholder="Användarnamn" />
-    <input type="password" value.bind="password" placeholder="Lösenord" />
-    <!--<button submit.delegate="createUser" class="">Log in</button>-->
-    <div class="response"></div>
-    <div class="error"></div>
+    <input type="text" value.bind="newUserName" placeholder="Användarnamn" />
+    <input type="password" value.bind="newUserPassword" placeholder="Lösenord" />
+    <button click.delegate="createNewUser()">Create</button>
   </div>
 </template>

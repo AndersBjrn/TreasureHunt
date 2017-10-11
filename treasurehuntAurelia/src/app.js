@@ -2,7 +2,7 @@ export class App {
 
     configureRouter(config, router) {
         this.router = router;
-        this.loggedInPlayer = "asdf";
+        this.loggedInPlayer = "";
         config.title = 'Skattjakt';
         config.map([
             {
