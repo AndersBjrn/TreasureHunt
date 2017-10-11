@@ -1,30 +1,31 @@
+import { inject } from 'aurelia-framework';
+import { EventAggregator } from 'aurelia-event-aggregator';
+import { HttpClient } from 'aurelia-fetch-client';
+
+@inject(HttpClient)
 export class Login {
+    constructor(http) {
+        http.configure(config => {
+            config
+                .withBaseUrl('http://localhost:51043/')
+                .withDefaults({
+                    mode: 'cors',
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+        });
+        this.http = http;
+        this.playerName = "";
+        this.password = "";
+        this.Login();        
+    }
 
     login() {
-        //$("#loginButton").click(function () {
-
-        //    var username = $("#playername").val()
-        //    var password = $("#password").val()
-
-        //    $("#response").html("")
-        //    $("#error").html("")
-
-        //    $.ajax({
-        //        url: '/session/login',
-        //        method: 'GET',
-        //        data: {
-        //            playerName: playername,
-        //            playerPassword: password
-        //        }
-        //    })
-        //        .done(function (response) {
-        //            $("#response").html(`Log in status: ${response}`);
-        //            window.location.replace(`/home/mymovies?username=${playername}`)
-        //        })
-        //        .fail(function (xhr, status, error) {
-        //            console.log("Error", xhr, status, error)
-        //            $("#error").html(`Error! ${xhr.responseJSON.Message}`);
-                //})
-        //})
+        this.http.fetch(`api/LogIn?Name=${this.playerName}&playerPassword=${this.password}`)
+            .then(response => response.json())
+            .then(data => {
+                this.correctAnswer = data;
+                })       
     }
 }
