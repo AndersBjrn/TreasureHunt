@@ -1,10 +1,11 @@
 import { inject } from 'aurelia-framework';
 import { EventAggregator } from 'aurelia-event-aggregator';
 import { HttpClient } from 'aurelia-fetch-client';
+import { UserService } from 'userService';
 
-@inject(HttpClient)
+@inject(HttpClient, UserService)
 export class riddlePage {
-    constructor(http) {
+    constructor(http, UserService) {
         http.configure(config => {
             config
                 .withBaseUrl('http://localhost:51043/')
@@ -16,10 +17,12 @@ export class riddlePage {
                 });
         });
         this.http = http;
+        this.UserService = UserService;
         this.riddle = "";
         this.getRiddle();
         this.answer = "";
         this.correctAnswer = "";
+        this.loggedInPlayer = this.UserService.loggedInPlayer;
     }
 
     getRiddle() {

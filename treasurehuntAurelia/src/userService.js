@@ -1,15 +1,10 @@
 export class UserService {
     constructor() {
-        this.loggedInplayer
+        this.loggedInPlayer = "";
     }
 
-    SetUser() {
-
+    SetUser(name) {
+        this.loggedInPlayer = name;
     }
-
-    checkIfPlayerExists() {
-
-    }
-
 
 }

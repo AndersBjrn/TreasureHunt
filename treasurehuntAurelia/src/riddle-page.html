@@ -1,10 +1,11 @@
 <template>
   <div class="background">
-    ${answer}
-    ${correctAnswer}
+    <div class="papperslapp">
+      <p class="topInPapperslapp">Du ar nu inloggad som </p><br />
+      <p class="bottomInPapperslapp">${loggedInPlayer}</p>
+    </div>
     <br />
     <h1 class="riddleCentre">${riddle}</h1>
-    <div>${loggedInPlayer}</div>
     <div id="error"></div>
     <div id="success"></div>
     <div class="centerInDiv">
