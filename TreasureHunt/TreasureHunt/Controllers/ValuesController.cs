@@ -89,24 +89,29 @@ namespace TreasureHunt.Controllers
         }
 
         [Route("LogIn"), HttpGet]
-        public IHttpActionResult LogIn(string playerName, string playerPassword)
+        public bool LogIn(string playerName, string playerPassword)
         {
             var session = DBService.OpenSession();
-            var loginPlayer = session.Query<Player>().Where(c => c.Name == playerName && c.Password == playerPassword).Single();
-            string response = "";
+            var loginPlayer = session.Query<Player>().Where(c => c.Name == playerName && c.Password == playerPassword).SingleOrDefault();
+            bool response = false;
+
+            if (loginPlayer==null)
+            {
+                return false;
+            }
 
             if (playerName == loginPlayer.Name && playerPassword == loginPlayer.Password)
             {
-                response = "Log in successfull!";
+                response = true;
             }
             else
             {
-                response = "Invalid username or password.";
-                return BadRequest(response);
+                response = false;
+                
             }
 
             DBService.CloseSession(session);
-            return Ok(response);
+            return response;
         }
 
         [Route("AddRiddleToPlayer"), HttpPost]

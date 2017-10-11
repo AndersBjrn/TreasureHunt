@@ -1,10 +1,11 @@
 import { inject } from 'aurelia-framework';
 import { EventAggregator } from 'aurelia-event-aggregator';
 import { HttpClient } from 'aurelia-fetch-client';
+import { UserService } from 'userService';
 
-@inject(HttpClient)
+@inject(HttpClient, UserService)
 export class newUser {
-    constructor(http) {
+    constructor(http, UserService) {
         http.configure(config => {
             config
                 .withBaseUrl('http://localhost:51043/')
@@ -15,11 +16,13 @@ export class newUser {
                     }
                 });
         });
+        this.UserService = UserService;
         this.http = http;
         this.newUserName = "";
         this.newUserPassword = "";
         this.error = "";
         this.response = "";
+        this.loggedIn = this.UserService.loggedInPlayer;
     }
 
     createNewUser() {
