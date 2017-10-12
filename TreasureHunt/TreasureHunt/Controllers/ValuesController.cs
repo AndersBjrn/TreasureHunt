@@ -86,7 +86,7 @@ namespace TreasureHunt.Controllers
             DBService.CloseSession(session);
             if (currentRiddle == null)
             {
-                return false;
+                return true;
             }
             if (currentRiddle.Answer == riddleAnswer)
             {

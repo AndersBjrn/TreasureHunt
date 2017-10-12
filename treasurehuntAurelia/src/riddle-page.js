@@ -48,6 +48,7 @@ export class riddlePage {
             .then(response => response.json())
             .then(data => {
                 if (data == true) {
+                    this.answer = "";
                     this.getRiddle();
                 }
                 console.log(data);
