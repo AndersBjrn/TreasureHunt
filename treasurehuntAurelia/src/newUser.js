@@ -2,10 +2,11 @@ import { inject } from 'aurelia-framework';
 import { EventAggregator } from 'aurelia-event-aggregator';
 import { HttpClient } from 'aurelia-fetch-client';
 import { UserService } from 'userService';
+import { Aurelia } from 'aurelia-framework';
 
-@inject(HttpClient, UserService)
+@inject(HttpClient, UserService, Aurelia)
 export class newUser {
-    constructor(http, UserService) {
+    constructor(http, UserService, Aurelia) {
         http.configure(config => {
             config
                 .withBaseUrl('http://localhost:51043/')
@@ -16,6 +17,7 @@ export class newUser {
                     }
                 });
         });
+        this.Aurelia = Aurelia;
         this.UserService = UserService;
         this.http = http;
         this.newUserName = "";
@@ -36,6 +38,8 @@ export class newUser {
             if (!this.taken) {
                 this.http.fetch(`api/CreatePlayer?name=${this.newUserName}&password=${this.newUserPassword}`, { method: 'post' })
                 this.response = "New user added";
+                this.Aurelia.setRoot('login');
+
             }
             else {
                 this.response = "Username already taken"
