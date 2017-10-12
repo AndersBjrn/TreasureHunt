@@ -9,28 +9,35 @@ export class App {
                 name: 'Login',
                 moduleId: 'login',
                 nav: true,
-                title: 'Logga in',
+                title: 'Logga in'
             },
             {
                 route: ['newuser'],
                 name: 'newuser',
                 moduleId: 'newUser',
                 nav: true,
-                title: 'Skapa konto',
+                title: 'Skapa konto'
             },
             {
                 route: ['riddle-page'],
                 name: 'riddle',
                 moduleId: 'riddle-page',
                 nav: true,
-                title: 'Klara av problemet!',
+                title: 'Klara av problemet!'
+            },
+            {
+                route: ['paste'],
+                name: 'urlpage',
+                moduleId: 'url-page',
+                nav: true,
+                title: 'Klara av problemet!'
             },
             {
                 route: ['treasure'],
                 name: 'treasure',
                 moduleId: 'treasure',
                 nav: true,
-                title: 'Kod: 9185',
+                title: 'Kod: 9185'
             }
         ]);
     }
