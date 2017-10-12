@@ -15,19 +15,20 @@ export class Treasure {
         //this.number2 = "";
         //this.number3 = "";
         //this.number4 = "";
+        this.UserService = UserService;
         this.loggedInPlayer = this.UserService.loggedInPlayer;
 
-        CorrectTreasureCode() {
-            //this.firstnumber1 = this.number1;
-            //this.firstnumber2 = this.number2;
-            //this.firstnumber3 = this.number3;
-            //this.firstnumber4 = this.number4;
-            if (this.firstnumber1 == 9 && this.firstnumber2 == 1 && this.firstnumber3 == 8 && this.firstnumber4 == 5) {
-                console.log("Bra")
-            }
-            else {
-                console.log("Dåligt")
-            }
+    }
+    CorrectTreasureCode() {
+        //this.firstnumber1 = this.number1;
+        //this.firstnumber2 = this.number2;
+        //this.firstnumber3 = this.number3;
+        //this.firstnumber4 = this.number4;
+        if (this.firstnumber1 == 9 && this.firstnumber2 == 1 && this.firstnumber3 == 8 && this.firstnumber4 == 5) {
+            console.log("Bra")
+        }
+        else {
+            console.log("Dåligt")
         }
     }
 }
