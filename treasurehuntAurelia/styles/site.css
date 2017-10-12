@@ -130,6 +130,15 @@ textarea {
   top: 39%;
   left: 49%;
   position: absolute;
-  text-align: center;
-  
+  text-align: center;  
+}
+
+.keyhole {
+  background-image: url('../Media/nyckelhal.png');
+  background-size: cover;
+  position: absolute;
+  width: 20px;
+  height: 30px;
+  top: 50%;
+  left: 55%;
 }
