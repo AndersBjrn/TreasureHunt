@@ -54,6 +54,21 @@ namespace TreasureHunt.Controllers
             return result;
         }
 
+        [Route("GetRandomRiddleFromPlayer"), HttpGet]
+        public string RandomRiddleFromPlayer(string playerName)
+        {
+            var session = DBService.OpenSession();
+            Player p = session.Query<Player>().Where(c => c.Name == playerName).SingleOrDefault();
+            List<Riddle> playerRiddles = p.Riddles.ToList();
+            Random rnd = new Random();
+            int nextRiddle = rnd.Next(0, playerRiddles.Count());
+            DBService.CloseSession(session);
+            Riddle r = playerRiddles.Where(c => c.DisplayText == playerRiddles[nextRiddle].DisplayText).SingleOrDefault();
+            RemoveRiddleFromPlayer(playerName, playerRiddles[nextRiddle].DisplayText);
+            return playerRiddles[nextRiddle].DisplayText;
+        }
+
+
         [Route("GetRandomRiddle"), HttpGet]
         public string GetOneRandomRiddle()
         {
@@ -64,18 +79,22 @@ namespace TreasureHunt.Controllers
         }
 
         [Route("GetAnswer"), HttpGet]
-        public string GetAnswer(string riddleAnswer, string riddle)
+        public bool GetAnswer(string riddleAnswer, string riddle)
         {
             var session = DBService.OpenSession();
-            Riddle currentRiddle = session.Query<Riddle>().Where(c => c.DisplayText == riddle).Single();
+            Riddle currentRiddle = session.Query<Riddle>().Where(c => c.DisplayText == riddle).SingleOrDefault();
             DBService.CloseSession(session);
+            if (currentRiddle == null)
+            {
+                return false;
+            }
             if (currentRiddle.Answer == riddleAnswer)
             {
-                return "bra";
+                return true;
             }
             else
             {
-                return "dåligt";
+                return false;
             }
 
         }
@@ -95,7 +114,7 @@ namespace TreasureHunt.Controllers
             var loginPlayer = session.Query<Player>().Where(c => c.Name == playerName && c.Password == playerPassword).SingleOrDefault();
             bool response = false;
 
-            if (loginPlayer==null)
+            if (loginPlayer == null)
             {
                 return false;
             }
@@ -107,7 +126,7 @@ namespace TreasureHunt.Controllers
             else
             {
                 response = false;
-                
+
             }
 
             DBService.CloseSession(session);
@@ -125,13 +144,29 @@ namespace TreasureHunt.Controllers
             DBService.CloseSession(session);
         }
 
+        [Route("RemoveRiddleFromPlayer"), HttpPost]
+        public void RemoveRiddleFromPlayer(string playerName, string riddleText)
+        {
+            var session = DBService.OpenSession();
+            Player player = session.Query<Player>().Where(c => c.Name == playerName).Single();
+            Riddle riddle = session.Query<Riddle>().Where(c => c.DisplayText == riddleText).Single();
+            player.RemoveRiddle(riddle);
+            session.Save(player);
+            DBService.CloseSession(session);
+        }
+
         [Route("CreatePlayer"), HttpPost]
         public void CreatePlayer(string name, string password)
         {
             var session = DBService.OpenSession();
             Player player = new Player(name, password);
+            List<Riddle> allRiddles = GetRiddles().ToList();
             session.Save(player);
             DBService.CloseSession(session);
+            foreach (var item in allRiddles)
+            {
+                AddRiddleToPlayer(player.Name, item.DisplayText);
+            }
         }
 
         [Route("CheckIfUserExists"), HttpGet]
@@ -140,7 +175,7 @@ namespace TreasureHunt.Controllers
             var session = DBService.OpenSession();
             var loginPlayer = session.Query<Player>().Where(c => c.Name == playerName).SingleOrDefault();
 
-            if (loginPlayer!=null)
+            if (loginPlayer != null)
             {
                 return true;
             }
