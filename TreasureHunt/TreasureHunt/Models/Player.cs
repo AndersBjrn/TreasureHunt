@@ -34,6 +34,12 @@ namespace TreasureHunt.Models
             riddle.Players.Add(this); 
         }
 
+        public virtual void RemoveRiddle(Riddle riddle)
+        {
+            Riddles.Remove(riddle);
+            riddle.Players.Remove(this);
+        }
+
         public virtual void AddHighscore(Highscore highscore)
         {
             Highscores.Add(highscore);

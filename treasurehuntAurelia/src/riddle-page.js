@@ -2,10 +2,11 @@ import { inject } from 'aurelia-framework';
 import { EventAggregator } from 'aurelia-event-aggregator';
 import { HttpClient } from 'aurelia-fetch-client';
 import { UserService } from 'userService';
+import { Aurelia } from 'aurelia-framework'
 
-@inject(HttpClient, UserService)
+@inject(HttpClient, UserService, Aurelia)
 export class riddlePage {
-    constructor(http, UserService) {
+    constructor(http, UserService, Aurelia) {
         http.configure(config => {
             config
                 .withBaseUrl('http://localhost:51043/')
@@ -16,6 +17,7 @@ export class riddlePage {
                     }
                 });
         });
+        this.aurelia = Aurelia;
         this.http = http;
         this.UserService = UserService;
         this.riddle = "";
@@ -25,8 +27,16 @@ export class riddlePage {
         this.loggedInPlayer = this.UserService.loggedInPlayer;
     }
 
+    //getRiddle() {
+    //    this.http.fetch('api/GetRandomRiddle')
+    //        .then(response => response.json())
+    //        .then(data => {
+    //            this.riddle = data;
+    //        })
+    //}
+
     getRiddle() {
-        this.http.fetch('api/GetRandomRiddle')
+        this.http.fetch(`api/GetRandomRiddleFromPlayer?playerName=${this.UserService.loggedInPlayer}`)
             .then(response => response.json())
             .then(data => {
                 this.riddle = data;
@@ -37,8 +47,15 @@ export class riddlePage {
         this.http.fetch(`api/getAnswer?riddleAnswer=${this.answer}&riddle=${this.riddle}`) 
             .then(response => response.json())
             .then(data => {
-                this.correctAnswer = data;
+                if (data == true) {
+                    this.getRiddle();
+                }
+                console.log(data);
             })
+    }
+
+    addRiddleToPlayer() {
+        this.http.fetch(`api/AddRiddleToPlayer?playerName=${this.UserService.loggedInPlayer}&riddleText=${this.riddle}`, { method: 'post' })
     }
 
 }
