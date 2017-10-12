@@ -1,0 +1,18 @@
+<template>
+  <div class="backgroundImage"></div>
+  <div>
+    <div class="papperslapp">
+      <p class="topInPapperslapp">Du ar nu inloggad som </p><br />
+      <p class="bottomInPapperslapp">${loggedInPlayer}</p>
+    </div>
+    <br />
+    <h1 class="textTopCentre">${riddle}</h1>
+    <div id="error"></div>
+    <div id="success"></div>
+    <div class="AnswerBottomCenter">
+      <input class="centerInput" type="text" value.bind="answer" placeholder="Ange svar" /><br />
+      <button class="loginbutton" click.delegate="checkAnswer()"><span>OK</span></button>
+    </div>
+  </div>
+</template>
+

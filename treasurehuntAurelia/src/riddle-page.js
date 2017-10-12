@@ -3,10 +3,11 @@ import { EventAggregator } from 'aurelia-event-aggregator';
 import { HttpClient } from 'aurelia-fetch-client';
 import { UserService } from 'userService';
 import { Aurelia } from 'aurelia-framework'
+import { Router } from "aurelia-router";
 
-@inject(HttpClient, UserService, Aurelia)
+@inject(HttpClient, UserService, Aurelia, Router)
 export class riddlePage {
-    constructor(http, UserService, Aurelia) {
+    constructor(http, UserService, Aurelia, Router) {
         http.configure(config => {
             config
                 .withBaseUrl('http://localhost:51043/')
@@ -17,6 +18,7 @@ export class riddlePage {
                     }
                 });
         });
+        this.router = Router;
         this.aurelia = Aurelia;
         this.http = http;
         this.UserService = UserService;
@@ -26,14 +28,6 @@ export class riddlePage {
         this.correctAnswer = "";
         this.loggedInPlayer = this.UserService.loggedInPlayer;
     }
-
-    //getRiddle() {
-    //    this.http.fetch('api/GetRandomRiddle')
-    //        .then(response => response.json())
-    //        .then(data => {
-    //            this.riddle = data;
-    //        })
-    //}
 
     getRiddle() {
         this.http.fetch(`api/GetRandomRiddleFromPlayer?playerName=${this.UserService.loggedInPlayer}`)
@@ -47,9 +41,15 @@ export class riddlePage {
         this.http.fetch(`api/getAnswer?riddleAnswer=${this.answer}&riddle=${this.riddle}`) 
             .then(response => response.json())
             .then(data => {
-                if (data == true) {
+                if (data === true) {
                     this.answer = "";
-                    this.getRiddle();
+                    this.UserService.AddStep();
+                    switch (this.UserService.GetSteps()) {
+                        case 2: this.router.navigate('paste');
+                            break;
+                        default: this.getRiddle();
+                            break;
+                    }
                 }
                 console.log(data);
             })
