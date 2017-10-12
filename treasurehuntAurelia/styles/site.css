@@ -124,6 +124,17 @@ textarea {
   left: 0px;
   
 }
+
+.treasureDesign2 {
+  background-image: url('../Media/kistaoppen.png');
+  background-size: cover;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+}
+
 .codeInMiddle {
   margin: 100px auto;
   display: block;

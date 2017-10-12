@@ -11,24 +11,22 @@ export class Treasure {
         this.firstnumber2 = 0;
         this.firstnumber3 = 0;
         this.firstnumber4 = 0;
-        //this.number1 = "";
-        //this.number2 = "";
-        //this.number3 = "";
-        //this.number4 = "";
+        
+        this.treasureclass = "treasureDesign";
         this.UserService = UserService;
         this.loggedInPlayer = this.UserService.loggedInPlayer;
 
     }
     CorrectTreasureCode() {
-        //this.firstnumber1 = this.number1;
-        //this.firstnumber2 = this.number2;
-        //this.firstnumber3 = this.number3;
-        //this.firstnumber4 = this.number4;
+
         if (this.firstnumber1 == 9 && this.firstnumber2 == 1 && this.firstnumber3 == 8 && this.firstnumber4 == 5) {
-            console.log("Bra")
+            console.log("Bra, du knäckte koden!")
+            this.treasureclass = "treasureDesign2";
         }
         else {
-            console.log("Dåligt")
+            console.log("Det här går ju dåligt...")
         }
     }
+
+
 }
