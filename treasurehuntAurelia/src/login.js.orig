@@ -30,8 +30,13 @@ export class Login {
         this.http.fetch(`api/LogIn?playerName=${this.playername}&playerPassword=${this.password}`)
             .then(response => response.json())
             .then(data => {
+<<<<<<< HEAD
                 console.log(data);
                 if (data === true) {
+=======
+                //console.log(data);
+                if (data == true) {
+>>>>>>> 9b48095cae8c25b03a37236be2ff8ba91b2f1cb7
                     this.UserService.SetUser(this.playername);
                     this.loggedInPlayer = this.UserService.loggedInPlayer;
                     this.aurelia.setRoot('riddle-page');
