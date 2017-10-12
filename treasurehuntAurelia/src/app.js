@@ -31,6 +31,13 @@ export class App {
                 moduleId: 'treasure',
                 nav: true,
                 title: 'Kod: 9185',
+            },
+            {
+                route: ['sign'],
+                name: 'sign',
+                moduleId: 'sign',
+                nav: true,
+                title: 'Korsning',
             }
         ]);
     }
