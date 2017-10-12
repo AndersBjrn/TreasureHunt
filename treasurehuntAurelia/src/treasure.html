@@ -1,9 +1,13 @@
 <template>
   <div class="treasureDesign">  </div>
     <div class="codeInMiddle">
-      <INPUT TYPE="NUMBER" MIN="0" MAX="9" VALUE="0" class="codenumber">
-      <INPUT TYPE="NUMBER" MIN="0" MAX="9" VALUE="0" class="codenumber">
-      <INPUT TYPE="NUMBER" MIN="0" MAX="9" VALUE="0" class="codenumber">
-      <INPUT TYPE="NUMBER" MIN="0" MAX="9" VALUE="0" class="codenumber">
+      <INPUT change.delegate="CorrectTreasureCode()" TYPE="NUMBER" MIN="0" MAX="9" VALUE="0" class="codenumber" value.bind="this.firstnumber1">
+      <INPUT change.delegate="CorrectTreasureCode()" TYPE="NUMBER" MIN="0" MAX="9" VALUE="0" class="codenumber" value.bind="this.firstnumber2">
+      <INPUT change.delegate="CorrectTreasureCode()" TYPE="NUMBER" MIN="0" MAX="9" VALUE="0" class="codenumber" value.bind="this.firstnumber3">
+      <INPUT change.delegate="CorrectTreasureCode()" TYPE="NUMBER" MIN="0" MAX="9" VALUE="0" class="codenumber" value.bind="this.firstnumber4">
+      
     </div>
+  <div class="keyhole" change.delegate="CorrectTreasureCode()">
+
+  </div>
 </template>

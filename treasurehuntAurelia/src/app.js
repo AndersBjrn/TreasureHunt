@@ -30,7 +30,7 @@ export class App {
                 name: 'treasure',
                 moduleId: 'treasure',
                 nav: true,
-                title: 'Kod: 9685',
+                title: 'Kod: 9185',
             }
         ]);
     }
