@@ -24,6 +24,13 @@ export class App {
                 moduleId: 'riddle-page',
                 nav: true,
                 title: 'Klara av problemet!',
+            },
+            {
+                route: ['treasure'],
+                name: 'treasure',
+                moduleId: 'treasure',
+                nav: true,
+                title: 'Kod: 9685',
             }
         ]);
     }

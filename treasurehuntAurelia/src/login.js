@@ -29,10 +29,10 @@ export class Login {
             .then(response => response.json())
             .then(data => {
                 console.log(data);
-                if (data == true) {
+                if (data === true) {
                     this.UserService.SetUser(this.playername);
                     this.loggedInPlayer = this.UserService.loggedInPlayer;
                 }
-                })       
+            });       
     }
 }
