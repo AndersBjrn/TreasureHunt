@@ -26,17 +26,18 @@ export class App {
                 title: 'Klara av problemet!'
             },
             {
-                route: ['Haxx0r'],
+                route: ['paste'],
                 name: 'urlpage',
                 moduleId: 'url-page',
                 nav: true,
-                title: '/api/SecretPage'
+                title: 'Klara av problemet!'
             },
             {
                 route: ['treasure'],
                 name: 'treasure',
                 moduleId: 'treasure',
                 nav: true,
+<<<<<<< HEAD
                 title: 'Kod: 9185',
             },
             {
@@ -45,6 +46,9 @@ export class App {
                 moduleId: 'sign',
                 nav: true,
                 title: 'Korsning',
+=======
+                title: 'Kod: 9185'
+>>>>>>> e0b9368abdf9c6f419d7e1020f9d5216b244bd05
             }
         ]);
     }
