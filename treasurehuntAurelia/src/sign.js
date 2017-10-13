@@ -17,17 +17,62 @@ export class Sign {
                     }
                 });
         });
+        this.router = Router;
         this.aurelia = Aurelia;
         this.http = http;
+        this.UserService = UserService;
+        this.city = "";
+        this.getCity();
+        this.coordinates = "";        
         this.UserService = UserService;
         this.loggedInPlayer = this.UserService.loggedInPlayer;
     }
 
     getCity() {
-        this.http.fetch(`api/GetRandomRiddleFromPlayer?playerName=${this.UserService.loggedInPlayer}`)
+        this.http.fetch(`api/GetRandomCityFromPlayer?playerName=${this.UserService.loggedInPlayer}`)
             .then(response => response.json())
             .then(data => {
-                this.riddle = data;
+                this.city = data;
             })
+    }
+
+    GetCoordinates() {
+        this.http.fetch(`api/GetCoordinates?coordinates=${this.coordinates}&city=${this.city}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data === true) {
+                    this.coordinates = "";
+                    this.UserService.AddStep();
+                    switch (this.UserService.GetSteps()) {
+                        case 2: this.router.navigate('paste');
+                            break;
+                        default: this.getCity();
+                            break;
+                    }
+                }
+
+            })
+    }
+
+    CheckCoordinates() {
+        this.http.fetch(`api/GetCoordinates?coordinates=${this.coordinates}&city=${this.city}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data === true) {
+                    this.coordinates = "";
+                    this.UserService.AddStep();
+                    switch (this.UserService.GetSteps()) {
+                        case 2: this.router.navigate('paste');
+                            break;
+                        default: this.getCity();
+                            break;
+                    }
+                }
+
+            })
+    }
+
+    addCityToPlayer() {
+        this.http.fetch(`api/AddCityToPlayer?playerName=${this.UserService.loggedInPlayer}&cityName=${this.city}`, { method: 'post' })
     }
 }

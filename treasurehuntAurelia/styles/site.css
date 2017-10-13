@@ -134,8 +134,7 @@ a:hover {
   position: absolute;
 }
 
-
-.papperslapp {
+.papperslapp{
   background-image: url('../Media/papperslapp2.png');
   position: absolute;
   top: 0%;
@@ -145,11 +144,55 @@ a:hover {
   z-index: 10;
 }
 
-.topInPapperslapp {
+.papperslappHiddenText {
+  background-image: url('../Media/papperslapp2.png');
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  width: 275px;
+  height: 170px;
+  z-index: 9;
+}
+
+.papperslappAnimate {
+  background-image: url('../Media/papperslapp2.png');
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  width: 275px;
+  height: 170px;
+  z-index: 10;
+  animation: papperAnimation;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes papperAnimation {
+  0% {
+    top: 0%;
+    min-height: 100px;
+  }
+
+  100% {
+    top: 20%;
+    min-height: 120px;
+    display:none;
+  }
+}
+
+.topInPapperslapp {  
   display: block;
   top: 20%;
   left: 20%;
   position: absolute;
+}
+
+.middleInPapperslapp {
+  display: block;
+  top: 30%;
+  left: 20%;
+  position: absolute;
+  z-index:-3;
 }
 
 .bottomInPapperslapp {
