@@ -353,3 +353,11 @@ a, a:active, a:focus, a:hover, a:visited {
   bottom: 0px;
   left: 0px;
 }
+
+.karta {
+  
+  position: absolute;
+  top: 0;
+  left: 0;
+  width:100%;
+}
