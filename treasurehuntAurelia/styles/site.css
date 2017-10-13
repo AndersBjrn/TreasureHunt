@@ -340,3 +340,12 @@ a, a:active, a:focus, a:hover, a:visited {
   position: absolute;
   text-align: center;
 }
+
+.pirate2 {
+  background-image: url('../Media/PirateKarta.png');
+  position: absolute;
+  width: 600px;
+  height: 800px;
+  bottom: 0px;
+  left: 0px;
+}
