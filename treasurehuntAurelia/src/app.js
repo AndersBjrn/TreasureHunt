@@ -37,7 +37,7 @@ export class App {
                 name: 'treasure',
                 moduleId: 'treasure',
                 nav: true,
-                title: '5',
+                title: '9\d\d\d',
             },
             {
                 route: ['animate-page'],

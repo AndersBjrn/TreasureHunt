@@ -27,13 +27,22 @@ export class animatePage {
         this.answer = "";
         this.correctAnswer = "";
         this.loggedInPlayer = this.UserService.loggedInPlayer;
+        this.randomAnswer = "4th:("+ this.randomString(5, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ') +").length";
     }
 
     AddAnimation() {
         this.paperclass = "papperslappAnimate"
     }
 
+    randomString(length, chars) {
+    var result = '';
+    for (var i = length; i > 0; --i) result += chars[Math.floor(Math.random() * chars.length)];
+    return result;
+    } 
+
     checkAnswer() {
+        if (this.answer == this.randomAnswer) {
         this.router.navigate('riddle-page');
+        }
     }
 }
