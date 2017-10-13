@@ -161,11 +161,16 @@ namespace TreasureHunt.Controllers
             var session = DBService.OpenSession();
             Player player = new Player(name, password);
             List<Riddle> allRiddles = GetRiddles().ToList();
+            List<City> allCities = GetCities().ToList();
             session.Save(player);
             DBService.CloseSession(session);
             foreach (var item in allRiddles)
             {
                 AddRiddleToPlayer(player.Name, item.DisplayText);
+            }
+            foreach (var item in allCities)
+            {
+                AddCityToPlayer(player.Name, item.CityName);
             }
         }
 
@@ -184,6 +189,72 @@ namespace TreasureHunt.Controllers
                 DBService.CloseSession(session);
                 return false;
             }
+        }
+
+        [Route("GetRandomCityFromPlayer"), HttpGet]
+        public string RandomCityFromPlayer(string playerName)
+        {
+            var session = DBService.OpenSession();
+            Player p = session.Query<Player>().Where(c => c.Name == playerName).SingleOrDefault();
+            List<City> playerCities = p.Cities.ToList();
+            Random rnd = new Random();
+            int nextCity = rnd.Next(0, playerCities.Count());
+            DBService.CloseSession(session);
+            City city = playerCities.Where(c => c.CityName == playerCities[nextCity].CityName).SingleOrDefault();
+            RemoveCityFromPlayer(playerName, playerCities[nextCity].CityName);
+            return playerCities[nextCity].CityName;
+        }
+
+        [Route("AddCityToPlayer"), HttpPost]
+        public void AddCityToPlayer(string playerName, string cityName)
+        {
+            var session = DBService.OpenSession();
+            Player player = session.Query<Player>().Where(c => c.Name == playerName).Single();
+            City city = session.Query<City>().Where(c => c.CityName == cityName).Single();
+            player.AddCity(city);
+            session.Save(player);
+            DBService.CloseSession(session);
+        }
+
+        [Route("RemoveCityFromPlayer"), HttpPost]
+        public void RemoveCityFromPlayer(string playerName, string cityName)
+        {
+            var session = DBService.OpenSession();
+            Player player = session.Query<Player>().Where(c => c.Name == playerName).Single();
+            City city = session.Query<City>().Where(c => c.CityName == cityName).Single();
+            player.RemoveCity(city);
+            session.Save(player);
+            DBService.CloseSession(session);
+        }
+
+        [Route("GetCities"), HttpGet]
+        public IEnumerable<City> GetCities()
+        {
+            var session = DBService.OpenSession();
+            var result = session.Query<City>().ToList();
+            DBService.CloseSession(session);
+            return result;
+        }
+
+        [Route("GetCoordinates"), HttpGet]
+        public bool GetCoordinates(string coordinates, string city)
+        {
+            var session = DBService.OpenSession();
+            City currentCity = session.Query<City>().Where(c => c.CityName == city).SingleOrDefault();
+            DBService.CloseSession(session);
+            if (currentCity == null)
+            {
+                return true;
+            }
+            if (currentCity.Coordinates == coordinates)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
         }
     }
 }

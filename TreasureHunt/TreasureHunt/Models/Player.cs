@@ -11,6 +11,7 @@ namespace TreasureHunt.Models
         {
             Riddles = new List<Riddle>();
             Highscores = new List<Highscore>();
+            Cities = new List<City>();
         }
 
         public Player(string name, string password)
@@ -27,6 +28,7 @@ namespace TreasureHunt.Models
 
         public virtual ICollection<Riddle> Riddles { get; set; }
         public virtual ICollection<Highscore> Highscores { get; set; }
+        public virtual ICollection<City> Cities { get; set; }
 
         public virtual void AddRiddle(Riddle riddle)
         {
@@ -44,6 +46,18 @@ namespace TreasureHunt.Models
         {
             Highscores.Add(highscore);
             highscore.Players.Add(this);
+        }
+
+        public virtual void AddCity(City city)
+        {
+            Cities.Add(city);
+            city.Players.Add(this);
+        }
+
+        public virtual void RemoveCity(City city)
+        {
+            Cities.Remove(city);
+            city.Players.Remove(this);
         }
 
     }
