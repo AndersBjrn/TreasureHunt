@@ -25,21 +25,55 @@ textarea {
   height: 100%;
   top: 0px;
   left: 0px;
-
 }
 
-.centerInput {
-  text-align: center;
+
+
+/* Input and button styles */
+input, button {
   width: 200px;
-  border: solid 1px gray;
-  padding: 10px;
   margin: 5px;
+  padding: 10px 20px 10px 0;
   border-radius: 20%;
-  border-top-left-radius: 70%;
-  border-bottom-left-radius: 70%;
+  border-top-right-radius: 70%;
+  border-bottom-right-radius: 70%;
   border: solid grey 3px;
-  background-color:aliceblue;
 }
+/*.centerInput {*/
+input {
+  text-align: center;
+  background-color: aliceblue;
+}
+
+/*.loginbutton {*/
+button {
+  width:220px;
+  background-color: saddlebrown;
+  color: white;
+  cursor: pointer;
+  border-color: #69340e;
+}
+
+/*Frida added*/
+  button:hover {
+    background-color: #b0591b;
+    border-color: saddlebrown;
+  }
+input:focus, button:focus {
+  outline: none;
+}
+
+a, a:active, a:focus, a:hover, a:visited {
+  color: #1100ff;
+  /*text-decoration:none;*/
+  font-family: Arial;
+}
+
+a:hover {
+  color: #3628ff;
+}
+/* Fridas code end*/
+
 .AnswerBottomCenter {
   margin: 100px auto;
   display: block;
@@ -68,38 +102,30 @@ textarea {
   position: absolute;
 }
 
-.loginbutton {
-  width: 228px;
-  background-color: saddlebrown;
-  padding: 10px;
-  color: white;
-  border-radius: 20%;
-  border-top-left-radius: 70%;
-  border-bottom-left-radius: 70%;
-}
 
 .papperslapp {
   background-image: url('../Media/papperslapp2.png');
   position: absolute;
   top: 0%;
   right: 0%;
-  width:275px;
+  width: 275px;
   height: 170px;
   z-index: 10;
 }
 
-.topInPapperslapp {  
+.topInPapperslapp {
   display: block;
   top: 20%;
   left: 20%;
   position: absolute;
 }
+
 .bottomInPapperslapp {
   display: block;
   top: 40%;
   left: 20%;
   position: absolute;
-  font-size:larger;
+  font-size: larger;
 }
 
 .centerMiddleBottom {
@@ -115,14 +141,13 @@ textarea {
 }
 
 .treasureDesign {
-  background-image: url('../Media/kista.png'); 
+  background-image: url('../Media/kista.png');
   background-size: cover;
   position: absolute;
   width: 100%;
   height: 100%;
   top: 0px;
   left: 0px;
-  
 }
 
 .treasureDesign2 {
@@ -141,7 +166,7 @@ textarea {
   top: 39%;
   left: 49%;
   position: absolute;
-  text-align: center;  
+  text-align: center;
 }
 
 .keyhole {
@@ -161,6 +186,7 @@ textarea {
   top: 25%;
   left: 30%;
 }
+
 .sign2 {
   position: absolute;
   width: 200px;
@@ -168,13 +194,15 @@ textarea {
   top: 45%;
   left: 30%;
 }
+
 .sign3 {
   position: absolute;
   width: 200px;
   height: 50px;
-  top:60%;
+  top: 60%;
   left: 30%;
 }
+
 .sign4 {
   position: absolute;
   width: 200px;
@@ -182,6 +210,7 @@ textarea {
   top: 25%;
   left: 52%;
 }
+
 .sign5 {
   position: absolute;
   width: 200px;
@@ -189,6 +218,7 @@ textarea {
   top: 45%;
   left: 52%;
 }
+
 .sign6 {
   position: absolute;
   width: 200px;
@@ -196,6 +226,7 @@ textarea {
   top: 63%;
   left: 52%;
 }
+
 .coordinates {
   position: absolute;
   width: 200px;
