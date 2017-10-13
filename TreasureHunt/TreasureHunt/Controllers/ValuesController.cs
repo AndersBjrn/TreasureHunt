@@ -193,17 +193,17 @@ namespace TreasureHunt.Controllers
             var session = DBService.OpenSession();
             Player player = new Player(name, password);
             List<Riddle> allRiddles = GetRiddles().ToList();
-            List<City> allCities = GetCities().ToList();
+            //List<City> allCities = GetCities().ToList();
             session.Save(player);
             DBService.CloseSession(session);
             foreach (var item in allRiddles)
             {
                 AddRiddleToPlayer(player.Name, item.DisplayText);
             }
-            foreach (var item in allCities)
-            {
-                AddCityToPlayer(player.Name, item.CityName);
-            }
+            //foreach (var item in allCities)
+            //{
+            //    AddCityToPlayer(player.Name, item.CityName);
+            //}
         }
 
         [Route("CheckIfUserExists"), HttpGet]
@@ -237,16 +237,16 @@ namespace TreasureHunt.Controllers
             return playerCities[nextCity].CityName;
         }
 
-        [Route("AddCityToPlayer"), HttpPost]
-        public void AddCityToPlayer(string playerName, string cityName)
-        {
-            var session = DBService.OpenSession();
-            Player player = session.Query<Player>().Where(c => c.Name == playerName).Single();
-            City city = session.Query<City>().Where(c => c.CityName == cityName).Single();
-            player.AddCity(city);
-            session.Save(player);
-            DBService.CloseSession(session);
-        }
+        //[Route("AddCityToPlayer"), HttpPost]
+        //public void AddCityToPlayer(string playerName, string cityName)
+        //{
+        //    var session = DBService.OpenSession();
+        //    Player player = session.Query<Player>().Where(c => c.Name == playerName).Single();
+        //    City city = session.Query<City>().Where(c => c.CityName == cityName).Single();
+        //    player.AddCity(city);
+        //    session.Save(player);
+        //    DBService.CloseSession(session);
+        //}
 
         [Route("RemoveCityFromPlayer"), HttpPost]
         public void RemoveCityFromPlayer(string playerName, string cityName)
@@ -259,14 +259,14 @@ namespace TreasureHunt.Controllers
             DBService.CloseSession(session);
         }
 
-        [Route("GetCities"), HttpGet]
-        public IEnumerable<City> GetCities()
-        {
-            var session = DBService.OpenSession();
-            var result = session.Query<City>().ToList();
-            DBService.CloseSession(session);
-            return result;
-        }
+        //[Route("GetCities"), HttpGet]
+        //public IEnumerable<City> GetCities()
+        //{
+        //    var session = DBService.OpenSession();
+        //    var result = session.Query<City>().ToList();
+        //    DBService.CloseSession(session);
+        //    return result;
+        //}
 
         [Route("GetCoordinates"), HttpGet]
         public bool GetCoordinates(string coordinates, string city)
