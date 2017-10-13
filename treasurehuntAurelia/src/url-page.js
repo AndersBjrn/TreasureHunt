@@ -22,7 +22,7 @@ export class riddlePage {
         this.aurelia = Aurelia;
         this.http = http;
         this.UserService = UserService;
-        this.riddle = "testgåta51043";
+        this.riddle = "localhost:51043";
         this.answer = ``;
         this.correctAnswer = "";
         this.loggedInPlayer = `?username=`;
