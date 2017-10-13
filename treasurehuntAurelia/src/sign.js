@@ -54,6 +54,24 @@ export class Sign {
             })
     }
 
+    CheckCoordinates() {
+        this.http.fetch(`api/GetCoordinates?coordinates=${this.coordinates}&city=${this.city}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data === true) {
+                    this.coordinates = "";
+                    this.UserService.AddStep();
+                    switch (this.UserService.GetSteps()) {
+                        case 2: this.router.navigate('paste');
+                            break;
+                        default: this.getCity();
+                            break;
+                    }
+                }
+
+            })
+    }
+
     addCityToPlayer() {
         this.http.fetch(`api/AddCityToPlayer?playerName=${this.UserService.loggedInPlayer}&cityName=${this.city}`, { method: 'post' })
     }
