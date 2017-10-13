@@ -21,7 +21,7 @@ namespace TreasureHunt.Models
         public virtual void AddPlayer(Player player)
         {
             Players.Add(player);
-            player.City.Add(this);
+            player.Cities.Add(this);
         }
 
     }
