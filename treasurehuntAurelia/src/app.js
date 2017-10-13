@@ -52,6 +52,13 @@ export class App {
                 moduleId: 'sign',
                 nav: true,
                 title: 'Korsning',
+            },
+            {
+                route: ['pirate'],
+                name: 'pirate',
+                moduleId: 'pirate',
+                nav: true,
+                title: 'Piraten!',
             }
         ]);
     }

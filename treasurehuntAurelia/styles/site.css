@@ -318,3 +318,24 @@ a:hover {
   top: 0px;
   left: 0px;
 }
+
+.pirate {
+  background-image: url('../Media/Pirate.png');
+  position: absolute;
+  width: 600px;
+  height: 800px;
+  bottom: 0px;
+  left: 0px;
+}
+
+.pratbubbla {
+  background-image: url('../Media/Pratbubbla.png');
+  position: absolute;
+  width: 800px;
+  height: 600px;
+  display: block;
+  top: 10%;
+  left: 40%;
+  position: absolute;
+  text-align: center;
+}
