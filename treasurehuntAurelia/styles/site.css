@@ -102,6 +102,15 @@ a:hover {
   position: absolute;
 }
 
+.papperslapp{
+  background-image: url('../Media/papperslapp2.png');
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  width: 275px;
+  height: 170px;
+  z-index: 10;
+}
 
 .papperslappHiddenText {
   background-image: url('../Media/papperslapp2.png');
@@ -110,7 +119,7 @@ a:hover {
   right: 0%;
   width: 275px;
   height: 170px;
-  z-index: -3;
+  z-index: 9;
 }
 
 .papperslappAnimate {
@@ -133,8 +142,9 @@ a:hover {
   }
 
   100% {
-    top: 120%;
+    top: 20%;
     min-height: 120px;
+    display:none;
   }
 }
 
