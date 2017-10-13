@@ -338,11 +338,9 @@ a, a:active, a:focus, a:hover, a:visited {
   display: block;
   top: 10%;
   left: 40%;
-  position: absolute;
-  text-align: center;
 }
 
 .pratbubbla p {
   width: 400px;
-  margin: 50px auto;
+  margin: 100px auto;
 }
