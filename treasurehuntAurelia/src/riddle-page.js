@@ -25,7 +25,6 @@ export class riddlePage {
         this.riddle = "";
         this.getRiddle();
         this.answer = "";
-        this.correctAnswer = "";
         this.loggedInPlayer = this.UserService.loggedInPlayer;
     }
 
