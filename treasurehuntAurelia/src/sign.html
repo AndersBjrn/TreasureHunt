@@ -1,10 +1,16 @@
 <template>
   <div class="signbackground"></div>
-  <div class="sign1">Stad 1</div>
-  <div class="sign2">Stad 2</div>
-  <div class="sign3">Stad 3</div>
-  <div class="sign4">Stad 4</div>
-  <div class="sign5">Stad 5</div>
-  <div class="sign6">Stad 6</div>
-  <div class="coordinates">Koordinater</div>
+  <div class="papperslapp">
+    <p class="topInPapperslapp">Du &auml;r nu inloggad som </p><br />
+    <p class="bottomInPapperslapp">${loggedInPlayer}</p>
+  </div>
+  <div class="sign1">Linkoping</div>
+  <div class="sign2">Karlshamn</div>
+  <div class="sign3">Vasteras</div>
+  <div class="sign4">Sundsvall</div>
+  <div class="sign5">Eskilstuna</div>
+  <div class="sign6" click.delegate="GoToMap()">${city}</div>
+  <div class="coordinates">${coordinates}</div>
+  <div id="error"></div>
+  <div id="success"></div>
 </template>

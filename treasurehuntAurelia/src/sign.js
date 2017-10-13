@@ -17,23 +17,14 @@ export class Sign {
                     }
                 });
         });
-        this.aurelia = Aurelia;
-        this.http = http;
-        this.city = "";
-        this.getCity();
-        this.coordinates = "";
-        this.correctCoordinates = "";
-        this.UserService = UserService;
-        this.loggedInPlayer = this.UserService.loggedInPlayer;
-
         this.router = Router;
         this.aurelia = Aurelia;
         this.http = http;
         this.UserService = UserService;
-        this.riddle = "";
-        this.getRiddle();
-        this.answer = "";
-        this.correctAnswer = "";
+        this.city = "";
+        this.getCity();
+        this.coordinates = "";        
+        this.UserService = UserService;
         this.loggedInPlayer = this.UserService.loggedInPlayer;
     }
 
@@ -45,21 +36,21 @@ export class Sign {
             })
     }
 
-    checkCoordinates() {
+    GetCoordinates() {
         this.http.fetch(`api/GetCoordinates?coordinates=${this.coordinates}&city=${this.city}`)
             .then(response => response.json())
             .then(data => {
                 if (data === true) {
-                    this.answer = "";
+                    this.coordinates = "";
                     this.UserService.AddStep();
                     switch (this.UserService.GetSteps()) {
                         case 2: this.router.navigate('paste');
                             break;
-                        default: this.getRiddle();
+                        default: this.getCity();
                             break;
                     }
                 }
-                console.log(data);
+
             })
     }
 

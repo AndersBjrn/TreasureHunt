@@ -16,6 +16,7 @@ namespace TreasureHunt.Models
 
         public Player(string name, string password)
         {
+            Cities = new List<City>();
             Riddles = new List<Riddle>();
             Highscores = new List<Highscore>();
             this.Name = name;

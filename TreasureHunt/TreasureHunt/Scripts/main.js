@@ -34,6 +34,4 @@ $("#answerButton").click(function () {
             console.log("Error", xhr, status, error);
             $("#error").html(`Error! ${xhr.responseJSON.Message}`);
         })
-
-
 })

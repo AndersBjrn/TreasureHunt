@@ -46,6 +46,27 @@ namespace TreasureHunt.Controllers
             DBService.CloseSession(session);
         }
 
+        [Route("FillDB2"), HttpGet]
+        public void FillDB2()
+        {
+            List<string> cityFromFile = new List<string>(File.ReadAllLines(@"C:\Project\TreasureHunt\testdata2.txt")).ToList();
+
+            var session = DBService.OpenSession();
+
+            foreach (var line in cityFromFile)
+            {
+                string[] cityArray = line.Split(',');
+                City newCity = new City
+                {
+                    CityName = cityArray[0],
+                    Coordinates = cityArray[1],
+                };
+                session.Save(newCity);
+            }
+
+            DBService.CloseSession(session);
+        }
+
         [Route("GetRiddles"), HttpGet]
         public IEnumerable<Riddle> GetRiddles()
         {
