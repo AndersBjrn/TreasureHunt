@@ -45,8 +45,9 @@ export class riddlePage {
                     this.answer = "";
                     this.UserService.AddStep();
                     switch (this.UserService.GetSteps()) {
-                        case 2: this.router.navigate('paste');
+                        case 2: this.router.navigate('Haxx0r');
                             break;
+                        case 4: this.router.navigate('treasure');
                         default: this.getRiddle();
                             break;
                     }

@@ -33,10 +33,11 @@ namespace TreasureHunt.Controllers
 
             foreach (var line in riddlesFromFile)
             {
+                string[] riddleArray = line.Split(',');
                 Riddle newRiddle = new Riddle
                 {
-                    DisplayText = line,
-                    Answer = "1",
+                    DisplayText = riddleArray[0],
+                    Answer = riddleArray[1],
                     Type = "math"
                 };
                 session.Save(newRiddle);
@@ -88,7 +89,7 @@ namespace TreasureHunt.Controllers
             {
                 return true;
             }
-            if (currentRiddle.Answer == riddleAnswer)
+            if (currentRiddle.Answer == riddleAnswer.ToLower())
             {
                 return true;
             }
@@ -142,6 +143,16 @@ namespace TreasureHunt.Controllers
             player.AddRiddle(riddle);
             session.Save(player);
             DBService.CloseSession(session);
+        }
+
+        [Route("SecretPage"), HttpGet]
+        public string SecretPage(string username, string password)
+        {
+            if (username == "Haxx0r" && password == "sup3rg00dp4$$w0rd")
+            {
+                return "tredje siffran är 8 precis som svaret på denna frågan";
+            }
+            else return "du har fel någontingen...";
         }
 
         [Route("RemoveRiddleFromPlayer"), HttpPost]

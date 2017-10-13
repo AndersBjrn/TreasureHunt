@@ -26,18 +26,25 @@ export class App {
                 title: 'Klara av problemet!'
             },
             {
-                route: ['paste'],
+                route: ['Haxx0r'],
                 name: 'urlpage',
                 moduleId: 'url-page',
                 nav: true,
-                title: 'Klara av problemet!'
+                title: '/api/SecretPage'
             },
             {
                 route: ['treasure'],
                 name: 'treasure',
                 moduleId: 'treasure',
                 nav: true,
-                title: 'Kod: 9185',
+                title: '5',
+            },
+            {
+                route: ['animate-page'],
+                name: 'animate',
+                moduleId: 'animate',
+                nav: true,
+                title: 'Klara av problemet!',
             },
             {
                 route: ['sign'],
