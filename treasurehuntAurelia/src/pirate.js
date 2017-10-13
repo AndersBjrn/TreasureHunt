@@ -26,6 +26,8 @@ export class piratePage {
         this.loggedInPlayer = this.UserService.loggedInPlayer;
     }
 
-
+    nextPage() {
+        this.router.navigate('riddle-page');
+    }
 
 }

@@ -36,7 +36,7 @@ export class Login {
                 if (data === true) {
                     this.UserService.SetUser(this.playername);
                     this.loggedInPlayer = this.UserService.loggedInPlayer;
-                    this.router.navigate('riddle-page');
+                    this.router.navigate('pirate');
                 }
             });       
     }
