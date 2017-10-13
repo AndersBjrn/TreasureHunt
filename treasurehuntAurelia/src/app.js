@@ -37,7 +37,14 @@ export class App {
                 name: 'treasure',
                 moduleId: 'treasure',
                 nav: true,
-                title: 'Kod: 9185',
+                title: '5',
+            },
+            {
+                route: ['animate-page'],
+                name: 'animate',
+                moduleId: 'animate',
+                nav: true,
+                title: 'Klara av problemet!',
             },
             {
                 route: ['sign'],

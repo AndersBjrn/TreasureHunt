@@ -150,7 +150,7 @@ namespace TreasureHunt.Controllers
         {
             if (username == "Haxx0r" && password == "sup3rg00dp4$$w0rd")
             {
-                return "andra siffran är 1 precis som svaret på denna frågan";
+                return "tredje siffran är 8 precis som svaret på denna frågan";
             }
             else return "du har fel någontingen...";
         }
