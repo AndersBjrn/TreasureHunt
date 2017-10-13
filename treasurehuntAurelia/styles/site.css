@@ -17,7 +17,7 @@ textarea {
 }
 
 .backgroundImage {
-  background: url('../Media/anpassadskatt.jpg') no-repeat fixed center top;
+  background: url('../Media/palmbakrund.png') no-repeat fixed center top;
   background-size: cover;
   opacity: 0.5;
   position: absolute;
