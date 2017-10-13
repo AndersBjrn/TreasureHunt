@@ -44,11 +44,13 @@ export class riddlePage {
                     this.answer = "";
                     this.UserService.AddStep();
                     switch (this.UserService.GetSteps()) {
-                        case 2: this.router.navigate('Haxx0r');
+                        case 1: this.router.navigate('pirate2');
                             break;
-                        case 1: this.router.navigate('animate-page');
+                        case 3: this.router.navigate('Haxx0r');
                             break;
-                        case 3: this.router.navigate('treasure');
+                        case 2: this.router.navigate('animate-page');
+                            break;
+                        case 4: this.router.navigate('treasure');
                         default: this.getRiddle();
                             break;
                     }

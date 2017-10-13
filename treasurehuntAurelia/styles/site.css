@@ -320,13 +320,17 @@ a, a:active, a:focus, a:hover, a:visited {
   left: 0px;
 }
 
-.pirate {
+.pirate, .pirate2 {
   background-image: url('../Media/Pirate.png');
   position: absolute;
   width: 600px;
   height: 800px;
   bottom: 0px;
   left: 0px;
+}
+
+.pirate2 {
+  background-image: url('../Media/PirateKarta.png');
 }
 
 .pratbubbla {

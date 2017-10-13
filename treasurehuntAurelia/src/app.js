@@ -61,6 +61,13 @@ export class App {
                 title: 'Piraten!',
             },
             {
+                route: ['pirate2'],
+                name: 'pirate2',
+                moduleId: 'pirate2',
+                nav: true,
+                title: 'Piraten!',            
+},
+            {
                 route: ['karta'],
                 name: 'karta',
                 moduleId: 'karta',
