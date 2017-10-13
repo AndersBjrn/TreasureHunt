@@ -19,7 +19,7 @@ export class Treasure {
     }
     CorrectTreasureCode() {
 
-        if (this.firstnumber1 === 9 && this.firstnumber2 === 1 && this.firstnumber3 === 8 && this.firstnumber4 === 5) {
+        if (this.firstnumber1 == 9 && this.firstnumber2 == 1 && this.firstnumber3 == 8 && this.firstnumber4 == 5) {
             console.log("Bra, du knäckte koden!")
             this.treasureclass = "treasureDesign2";
         }

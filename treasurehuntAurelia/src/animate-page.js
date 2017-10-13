@@ -6,7 +6,7 @@ import { Aurelia } from 'aurelia-framework'
 import { Router } from "aurelia-router";
 
 @inject(HttpClient, UserService, Aurelia, Router)
-export class riddlePage {
+export class animatePage {
     constructor(http, UserService, Aurelia, Router) {
         http.configure(config => {
             config
@@ -18,25 +18,22 @@ export class riddlePage {
                     }
                 });
         });
+        this.paperclass = "papperslapp";
         this.router = Router;
         this.aurelia = Aurelia;
         this.http = http;
         this.UserService = UserService;
-        this.riddle = "testgåta51043";
-        this.answer = ``;
+        this.riddle = "";
+        this.answer = "";
         this.correctAnswer = "";
-        this.loggedInPlayer = `?username=`;
+        this.loggedInPlayer = this.UserService.loggedInPlayer;
     }
 
-    DisplayPassword() {
-        this.CheckAnswer();
-        this.answer = "&password=sup3rg00dp4$$w0rd";
+    AddAnimation() {
+        this.paperclass = "papperslappAnimate"
     }
 
-    CheckAnswer() {
-        if (this.answer == 8) {
-            this.router.navigate('riddle-page');
-        }
+    checkAnswer() {
+        this.router.navigate('riddle-page');
     }
-
 }
