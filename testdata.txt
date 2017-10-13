@@ -1,21 +1,10 @@
-﻿testgåta1
-testgåta2
-testgåta3
-testgåta4
-testgåta5
-testgåta6
-testgåta7
-testgåta8
-testgåta9
-testgåta10
-testgåta11
-testgåta12
-testgåta13
-testgåta14
-testgåta15
-testgåta16
-testgåta17
-testgåta18
-testgåta19
-testgåta20
-testgåta21
+﻿Vilket djur är störst i skogen?,en orm
+Aron,sql
+zip zap,boing
+Dubbelt så varmt som -42,462
+Bobby,tables
+Härligt att vara farligt att äta,gift
+Sämsta smaken,vit
+Regnbågeform,wifi-signal
+1+1+(2+1)+4x0,5
+De rika vill inte ha det de fattiga äger det och om du äter det så dör du.,inget

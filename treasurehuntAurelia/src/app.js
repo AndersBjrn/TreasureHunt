@@ -26,11 +26,11 @@ export class App {
                 title: 'Klara av problemet!'
             },
             {
-                route: ['paste'],
+                route: ['Haxx0r'],
                 name: 'urlpage',
                 moduleId: 'url-page',
                 nav: true,
-                title: 'Klara av problemet!'
+                title: '/api/SecretPage'
             },
             {
                 route: ['treasure'],
