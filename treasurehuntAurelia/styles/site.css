@@ -27,9 +27,8 @@ textarea {
   max-width: 280px;
 }
 
-/*.backgroundImage {*/
-.container::before {
-  background: url('../Media/anpassadskatt.jpg') no-repeat fixed center top;
+.backgroundImage {
+  background: url('../Media/palmbakrund.png') no-repeat fixed center top;
   background-size: cover;
   content: "";
   /*opacity: 0.5;
