@@ -22,6 +22,7 @@ namespace TreasureHunt.Mapping
             MapHighscore();
             MapPlayer();
             MapRiddle();
+            MapCity();
             return _modelMapper.CompileMappingForAllExplicitlyAddedEntities();
         }
 
@@ -41,6 +42,25 @@ namespace TreasureHunt.Mapping
                     collectionMapping.Key(keyMap => keyMap.Column("RiddleID")); 
 
                 }, map => map.ManyToMany(p => p.Column("PlayerID"))); 
+            });
+        }
+
+        private void MapCity()
+        {
+            _modelMapper.Class<City>(e =>
+            {
+                e.Id(p => p.CityID, p => p.Generator(Generators.GuidComb));
+                e.Property(p => p.CityName);
+                e.Property(p => p.Coordinates);
+
+
+                e.Set(x => x.Players, collectionMapping =>
+                {
+                    collectionMapping.Table("CitiesPlayers");
+                    collectionMapping.Cascade(Cascade.None);
+                    collectionMapping.Key(keyMap => keyMap.Column("CityID"));
+
+                }, map => map.ManyToMany(p => p.Column("PlayerID")));
             });
         }
 
@@ -77,6 +97,15 @@ namespace TreasureHunt.Mapping
                     collectionMapping.Key(keyMap => keyMap.Column("PlayerID")); 
 
                 }, map => map.ManyToMany(p => p.Column("RiddleID")));
+
+                e.Set(x => x.Cities, collectionMapping =>
+                {
+                    collectionMapping.Table("CitiesPlayers");
+                    collectionMapping.Inverse(true);
+                    collectionMapping.Cascade(Cascade.None);
+                    collectionMapping.Key(keyMap => keyMap.Column("PlayerID"));
+
+                }, map => map.ManyToMany(p => p.Column("CityID")));
 
                 e.Set(x => x.Highscores, collectionMapping =>
                 {
