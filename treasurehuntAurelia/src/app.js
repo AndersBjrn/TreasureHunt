@@ -42,7 +42,7 @@ export class App {
             {
                 route: ['animate-page'],
                 name: 'animate',
-                moduleId: 'animate',
+                moduleId: 'animate-page',
                 nav: true,
                 title: 'Klara av problemet!',
             },

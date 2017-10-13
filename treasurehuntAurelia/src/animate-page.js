@@ -6,7 +6,7 @@ import { Aurelia } from 'aurelia-framework'
 import { Router } from "aurelia-router";
 
 @inject(HttpClient, UserService, Aurelia, Router)
-export class riddlePage {
+export class animatePage {
     constructor(http, UserService, Aurelia, Router) {
         http.configure(config => {
             config
@@ -18,15 +18,19 @@ export class riddlePage {
                     }
                 });
         });
+        this.paperclass = "papperslapp";
         this.router = Router;
         this.aurelia = Aurelia;
         this.http = http;
         this.UserService = UserService;
         this.riddle = "";
-        this.getRiddle();
         this.answer = "";
         this.correctAnswer = "";
         this.loggedInPlayer = this.UserService.loggedInPlayer;
+    }
+
+    AddAnimation() {
+        this.paperclass = "papperslappAnimate"
     }
 
     checkAnswer() {

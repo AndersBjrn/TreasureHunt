@@ -88,6 +88,31 @@ textarea {
   z-index: 10;
 }
 
+.papperslappAnimate {
+  background-image: url('../Media/papperslapp2.png');
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  width: 275px;
+  height: 170px;
+  z-index: 10;
+  animation: papperAnimation;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes papperAnimation {
+  0% {
+    top: 0%;
+    min-height: 100px;
+  }
+
+  100% {
+    top: 120%;
+    min-height: 120px;
+  }
+}
+
 .topInPapperslapp {  
   display: block;
   top: 20%;
