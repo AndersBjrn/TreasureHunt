@@ -23,11 +23,12 @@ export class animatePage {
         this.aurelia = Aurelia;
         this.http = http;
         this.UserService = UserService;
-        this.riddle = "";
+        this.riddle = "Finns bakom dig";
         this.answer = "";
         this.correctAnswer = "";
         this.loggedInPlayer = this.UserService.loggedInPlayer;
-        this.randomAnswer = "4th:("+ this.randomString(5, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ') +").length";
+        this.rstring = this.randomString(5, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
+        this.randomAnswer = "_ _ _ X = ("+ this.rstring +").length";
     }
 
     AddAnimation() {
@@ -41,7 +42,7 @@ export class animatePage {
     } 
 
     checkAnswer() {
-        if (this.answer == this.randomAnswer) {
+        if (this.answer == this.rstring) {
         this.router.navigate('riddle-page');
         }
     }
